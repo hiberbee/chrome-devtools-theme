@@ -316,3 +316,19 @@ gradle-app.setting
 **/build/
 
 # End of https://www.toptal.com/developers/gitignore/api/java,gradle,sass,node,git,visualstudiocode,macos,jetbrains+all
+
+# build
+material-style.min.css
+
+# Project exclude paths
+/dist/
+/__sapper__/
+/static/
+/public/bundle.*
+/public/styles/sass-cache
+
+release.zip
+release/
+
+public/bundle.css
+public/bundle.css.map

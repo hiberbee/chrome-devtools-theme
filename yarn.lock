@@ -4342,10 +4342,10 @@ supports-color@^7.0.0, supports-color@^7.1.0:
   dependencies:
     has-flag "^4.0.0"
 
-svelte@3.41.0:
-  version "3.41.0"
-  resolved "https://registry.npmjs.org/svelte/-/svelte-3.41.0.tgz"
-  integrity sha512-X9/lnTcRBCrMdyFBVjfmqy1T2vyN8ejUE1OfbWSccc2Z42Amn3ab3XdBgVl+oDkZvzPfPMoxo6CEbWca7pXOew==
+svelte@3.42.0:
+  version "3.42.0"
+  resolved "https://registry.npmjs.org/svelte/-/svelte-3.42.0.tgz"
+  integrity sha512-G8RAxREbWxGWjIG7EFqFb+Isda6oHUu3ajah/iZpkSRBfEytciA0vV15TfnmCThAv63jAzSCS5oCGrCB4GwKhg==
 
 sver-compat@^1.5.0:
   version "1.5.0"

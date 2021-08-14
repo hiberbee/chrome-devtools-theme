@@ -237,10 +237,10 @@
   resolved "https://registry.npmjs.org/@polka/url/-/url-0.5.0.tgz"
   integrity sha512-oZLYFEAzUKyi3SKnXvj32ZCEGH6RDnao7COuCVhDydMS9NrCSVXhM79VaKyP5+Zc33m0QXEd2DN3UkU7OsHcfw==
 
-"@polka/url@^1.0.0-next.15":
-  version "1.0.0-next.15"
-  resolved "https://registry.npmjs.org/@polka/url/-/url-1.0.0-next.15.tgz"
-  integrity sha512-15spi3V28QdevleWBNXE4pIls3nFZmBbUGrW9IVPwiQczuSb9n76TCB4bsk8TSel+I1OkHEdPhu5QKMfY6rQHA==
+"@polka/url@^1.0.0-next.17":
+  version "1.0.0-next.17"
+  resolved "https://registry.npmjs.org/@polka/url/-/url-1.0.0-next.17.tgz"
+  integrity sha512-0p1rCgM3LLbAdwBnc7gqgnvjHg9KpbhcSphergHShlkWz8EdPawoMJ3/VbezI0mGC5eKCDzMaPgF9Yca6cKvrg==
 
 "@rollup/plugin-commonjs@20.0.0":
   version "20.0.0"
@@ -4018,12 +4018,12 @@ sirv-cli@^1.0.0:
     sirv "^1.0.12"
     tinydate "^1.0.0"
 
-sirv@1.0.12, sirv@^1.0.12:
-  version "1.0.12"
-  resolved "https://registry.npmjs.org/sirv/-/sirv-1.0.12.tgz"
-  integrity sha512-+jQoCxndz7L2tqQL4ZyzfDhky0W/4ZJip3XoOuxyQWnAwMxindLl3Xv1qT4x1YX/re0leShvTm8Uk0kQspGhBg==
+sirv@1.0.14, sirv@^1.0.12:
+  version "1.0.14"
+  resolved "https://registry.npmjs.org/sirv/-/sirv-1.0.14.tgz"
+  integrity sha512-czTFDFjK9lXj0u9mJ3OmJoXFztoilYS+NdRPcJoT182w44wSEkHSiO7A2517GLJ8wKM4GjCm2OXE66Dhngbzjg==
   dependencies:
-    "@polka/url" "^1.0.0-next.15"
+    "@polka/url" "^1.0.0-next.17"
     mime "^2.3.1"
     totalist "^1.0.0"
 
@@ -4378,9 +4378,9 @@ table@^6.6.0:
     strip-ansi "^6.0.0"
 
 tar@^4:
-  version "4.4.16"
-  resolved "https://registry.yarnpkg.com/tar/-/tar-4.4.16.tgz#4a48b3c025e77d9d0c788f038a09b91c594d326d"
-  integrity sha512-gOVUT/KWPkGFZQmCRDVFNUWBl7niIo/PRR7lzrIqtZpit+st54lGROuVjc6zEQM9FhH+dJfQIl+9F0k8GNXg5g==
+  version "4.4.17"
+  resolved "https://registry.yarnpkg.com/tar/-/tar-4.4.17.tgz#44be5e3fa8353ee1d11db3b1401561223a5c3985"
+  integrity sha512-q7OwXq6NTdcYIa+k58nEMV3j1euhDhGCs/VRw9ymx/PbH0jtIM2+VTgDE/BW3rbLkrBUXs5fzEKgic5oUciu7g==
   dependencies:
     chownr "^1.1.4"
     fs-minipass "^1.2.7"

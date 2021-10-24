@@ -1,0 +1,16 @@
+.chrome-select {
+  border: 2px solid $borderLight;
+  border-radius: 4px;
+  color: $fg;
+  background: $contrast;
+  box-shadow: none;
+
+  &:focus {
+    border-color: $accent1;
+  }
+
+  &:hover {
+    background: $bg;
+    color: $selFg;
+  }
+}

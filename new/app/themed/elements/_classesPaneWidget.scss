@@ -4,11 +4,11 @@
 }
 
 .styles-element-classes-pane .new-class-input {
-  border: none;
-  border-bottom: 2px solid $button;
+  border: 2px solid $button;
+  border-radius: 4px;
   background-color: $contrast;
 
   &:focus {
-    border-bottom-color: $accent1;
+    border-color: $accent1;
   }
 }

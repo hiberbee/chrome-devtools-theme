@@ -75,14 +75,14 @@
 
 .styles-sidebar-pane-filter-box > input {
   background-color: $contrast;
-  border: none;
-  border-bottom: 2px solid $borderLight;
+  border: 2px solid $borderLight;
   box-shadow: none;
+  border-radius: 4px;
 }
 
 .styles-sidebar-pane-filter-box > input:focus,
 .styles-sidebar-pane-filter-box > input:not(:placeholder-shown) {
-  border-bottom-color: $accent1;
+  border-color: $accent1;
   box-shadow: none;
 }
 

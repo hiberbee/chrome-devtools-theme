@@ -24,3 +24,23 @@
 .text-prompt[data-placeholder]:empty::before {
   color: $disabled;
 }
+
+.styles-element-classes-pane {
+  background: $bg;
+  border-bottom: $borderLight;
+}
+
+.styles-sidebar-pane-filter-box > input,
+.styles-element-classes-pane .new-class-input {
+  background-color: $contrast;
+  border: 2px solid $border;
+  border-radius: 4px;
+  box-shadow: none;
+}
+
+.styles-sidebar-pane-filter-box > input:focus,
+.styles-element-classes-pane .new-class-input:focus {
+  border-color: $accent1;
+  box-shadow: none;
+}
+

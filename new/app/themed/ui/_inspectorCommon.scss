@@ -14,11 +14,11 @@ input {
   background-color: $contrast;
   color: $foreground;
 
-  border: none;
-  border-bottom: 2px solid $button;
+  border: 2px solid $button;
+  border-radius: 4px;
 
   &:hover {
-    border-bottom: 2px solid $accent1;
+    border: 2px solid $accent1;
   }
 }
 

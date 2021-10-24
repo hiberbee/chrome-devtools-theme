@@ -1,3 +1,7 @@
+#network-container {
+  border-color: $borderLight;
+}
+
 .network-summary-bar {
   background: $darkerBg;
   border: $border;
@@ -61,11 +65,17 @@
   background-color: $darkerBg;
 }
 
+.data-grid .header-container,
+.data-grid .data-container {
+  background: $bg;
+}
+
 .network-log-grid.data-grid td {
   border-color: $border;
 }
 
 .network-log-grid.data-grid table.data {
+  border-top-color: $borderLight;
   > tr {
     background-color: $background;
 

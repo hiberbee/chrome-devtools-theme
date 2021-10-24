@@ -3,10 +3,11 @@
 }
 
 .filtered-list-widget-input {
-  border-bottom: 2px solid $button;
+  border: 2px solid $button;
+  border-radius: 4px;
 
   &:focus {
-    border-bottom-color: $accent1;
+    border-color: $accent1;
   }
 }
 

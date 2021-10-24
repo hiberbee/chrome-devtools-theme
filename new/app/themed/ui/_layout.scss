@@ -1,0 +1,28 @@
+.header {
+  background: $contrast;
+  color: $fg;
+
+  &::marker {
+    color: $fg;
+  }
+}
+
+.content-section {
+  border-bottom-color: $borderLight;
+}
+
+.content-section-title {
+  color: $text;
+}
+
+.content {
+  background: $bg;
+}
+
+.icon-button {
+  border: none;
+}
+
+devtools-console-sidebar-deprecation {
+  display: none;
+}

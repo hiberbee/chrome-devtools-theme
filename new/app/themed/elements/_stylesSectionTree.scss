@@ -1,11 +1,24 @@
 .tree-outline li.filter-match {
-  background-color: $accent1Alpha !important;
+  background-color: $tree !important;
 }
 
 .tree-outline li.overloaded.filter-match {
-  background-color: $accent1Alpha !important;
+  background-color: $tree !important;
 }
 
 .has-ignorable-error {
   color: $disabled !important;
+}
+
+.group-title > h1 {
+  color: $fg;
+  font-weight: bold;
+}
+
+.group-title:not(.first-group) > h1 {
+  border-color: $borderLight;
+}
+
+devtools-color-swatch {
+  color: $number-color;
 }

@@ -37,3 +37,7 @@
   background: $highlight !important;
   border-color: $disabled;
 }
+
+.metrics .highlighted:not(.position) > :not(.border):not(.padding):not(.content) {
+  color: $text;
+}

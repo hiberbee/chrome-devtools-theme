@@ -99,8 +99,8 @@ select.toolbar-item[data-keyboard-focus='true']:focus > * {
 
 .toolbar-input {
   background-color: $contrast;
-  border: none;
-  //border-bottom: 2px solid $border;
+  border: 2px solid $border;
+  border-radius: 4px;
   box-shadow: none;
 }
 
@@ -111,7 +111,7 @@ select.toolbar-item[data-keyboard-focus='true']:focus > * {
 .toolbar-input.focused,
 .toolbar-input:not(.toolbar-input-empty) {
   box-shadow: none;
-  border-bottom-color: $accent1;
+  border-color: $accent1;
 }
 
 .toolbar-input-prompt {
@@ -154,7 +154,7 @@ input[is='history-input']:hover {
 input[is='history-input']:focus,
 input[is='history-input']:not(:placeholder-shown) {
   box-shadow: none;
-  border-bottom-color: $accent1;
+  border-color: $accent1;
 }
 
 .toolbar-item.warning {
@@ -175,4 +175,8 @@ input[is='history-input']:not(:placeholder-shown) {
       color: $selFg !important;
     }
   }
+}
+
+.toolbar-shadow {
+  background: $contrast;
 }

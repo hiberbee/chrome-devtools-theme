@@ -4,7 +4,7 @@ button.soft-dropdown {
 
   .title {
     background: $background;
-    border-color: $borderLight;
+    border-color: $contrast;
   }
 }
 
@@ -16,4 +16,9 @@ button.soft-dropdown[data-keyboard-focus='true']:focus::before {
   background-color: $active;
   color: $accent1;
   opacity: 0.5;
+}
+
+.toolbar-has-dropdown {
+  border-color: $contrast !important;
+  background: $contrast !important;
 }

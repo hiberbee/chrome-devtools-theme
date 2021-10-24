@@ -1,5 +1,11 @@
+.filter-input-container:focus-within,
+.filter-text-filter:not(.filter-text-empty) .filter-input-container {
+  box-shadow: none;
+}
+
 .filter-bar {
   background-color: $contrast;
+  border-color: $borderLight;
 }
 
 .filter-bitset-filter span {
@@ -31,9 +37,11 @@
 
 .filter-input-field {
   background-color: $contrast;
-  border: none;
-  border-bottom: 2px solid $border;
+  border: 2px solid $borderLight;
+  border-radius: 4px;
   box-shadow: none;
+  outline: none;
+  height: auto;
 }
 
 .filter-input-field:hover {
@@ -42,6 +50,6 @@
 
 .filter-input-field:focus,
 .filter-input-field:not(:empty) {
-  border-bottom-color: $accent1;
+  border-color: $accent1;
   box-shadow: none;
 }

@@ -46,11 +46,11 @@
   border-radius: 50%;
   box-sizing: content-box;
   //border: 2px solid $accent1Alpha;
-  background: -webkit-image-set(url(Images/smallIcons.svg) 1x, url(Images/smallIcons.svg) 2x) -16px 74px, $accent1Alpha;
+  //background: -webkit-image-set(url(Images/smallIcons.svg) 1x, url(Images/smallIcons.svg) 2x) -16px 74px, $accent1Alpha;
 }
 
 .tabbed-pane-header-tab.selected {
-  background-color: $highlight;
+  background-color: $highlight !important;
   color: $selFg;
   border-bottom: 2px solid $accent1;
 }
@@ -84,4 +84,5 @@
 
 .tabbed-pane-header-tab-title {
   text-overflow: clip;
+  overflow: visible;
 }

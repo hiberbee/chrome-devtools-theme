@@ -1,5 +1,7 @@
 .release-note-top-section {
   background-color: $contrast;
+  border-bottom-color: $borderLight;
+  color: $fg;
 }
 
 .release-note-container li:hover {
@@ -12,6 +14,10 @@
 
 .release-note-action-container > button {
   color: $primary;
+}
+
+.release-note-container .release-note-link {
+  border-color: $borderLight;
 }
 
 img {

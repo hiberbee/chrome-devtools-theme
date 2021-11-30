@@ -1,6 +1,6 @@
 {
   "name": "material-dev-tools",
-  "version": "3.0.4",
+  "version": "3.0.5",
   "description": "Material Theme for Chrome Devtools",
   "main": "devtools.html",
   "author": "Elior Boukhobza <heliosaian@gmail.com>",
@@ -45,6 +45,6 @@
     "rollup-plugin-terser": "7.0.2",
     "stylelint": "14.0.1",
     "stylelint-prettier": "2.0.0",
-    "svelte": "3.44.1"
+    "svelte": "3.44.2"
   }
 }

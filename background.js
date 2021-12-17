@@ -281,5 +281,5 @@
   window,
   chrome.storage.sync,
   chrome.devtools.panels,
-  chrome.browserAction
+  chrome.action
 );

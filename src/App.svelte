@@ -16,6 +16,7 @@
     const themes = [
       ...allThemes.material,
       ...allThemes.other,
+      ...allThemes.other2,
     ];
 
     // Load themes

@@ -115,14 +115,10 @@ select.toolbar-item[data-keyboard-focus='true']:focus > * {
 }
 
 .toolbar-input-prompt {
-  background-color: $contrast;
+  background-color: $bg;
   border: none;
-  border-bottom: 2px solid $border;
   box-shadow: none;
 
-  &:focus {
-    border-bottom-color: $accent1;
-  }
 }
 
 .toolbar-divider {

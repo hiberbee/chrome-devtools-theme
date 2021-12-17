@@ -216,6 +216,8 @@
     if (!scrollbars) return '';
     // language=CSS
     return `
+      :host ::-webkit-scrollbar,
+      html ::-webkit-scrollbar,
       .-theme-with-dark-background ::-webkit-scrollbar,
       :host-context(.-theme-with-dark-background) ::-webkit-scrollbar {
         width: 10px !important;

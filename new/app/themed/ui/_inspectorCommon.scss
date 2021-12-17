@@ -11,15 +11,10 @@
 }
 
 input {
-  background-color: $contrast;
+  background-color: $bg;
   color: $foreground;
 
-  border: 2px solid $button;
   border-radius: 4px;
-
-  &:hover {
-    border: 2px solid $accent1;
-  }
 }
 
 ::-webkit-scrollbar-track {
@@ -104,7 +99,7 @@ input[type='radio']:focus {
 }
 
 input {
-  background-color: $contrast;
+  background-color: $bg;
 }
 
 .harmony-input:not([type]):not(.error-input):not(:invalid):hover,

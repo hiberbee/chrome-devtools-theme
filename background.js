@@ -235,7 +235,7 @@
               theme      = json[DEVTOOLS_THEME] || 'Material Oceanic',
               current    = json[DEVTOOLS_CURRENT],
               family     = json[DEVTOOLS_FONT],
-              scrollbars = json[DEVTOOLS_SCROLLBARS] || true,
+              scrollbars = json[DEVTOOLS_SCROLLBARS] ?? true,
               accent     = json[DEVTOOLS_ACCENT_COLOR];
 
         // Variables

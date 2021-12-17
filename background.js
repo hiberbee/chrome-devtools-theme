@@ -8,6 +8,7 @@
   const DEVTOOLS_SIZE = 'devtools-size';
   const DEVTOOLS_CURRENT = 'devtools-current';
   const DEVTOOLS_ACCENT_COLOR = 'devtools-accent-color';
+  const DEVTOOLS_SCROLLBARS = 'devtools-scrollbars';
 
   let css;
 
@@ -98,12 +99,14 @@
      * @param primary
      * @param selectBg
      * @param selectFg
+     * @param selectFg2
      * @param button
      * @param disabled
      * @param contrast
      * @param second
      * @param darkerBg
      * @param lighterBg
+     * @param table
      * @param border
      * @param highlight
      * @param tree
@@ -167,6 +170,7 @@
              fontSize,
              accentColor
            }) {
+      // language=CSS
       return `
   :root {
   --bg: ${background};
@@ -199,7 +203,7 @@
   --numbers: ${numbers};
   --links: ${links};
   --parameters: ${parameters};
-  
+
   --ui-font-family: Roboto, Helvetica Neue, Arial, sans-serif;
   --font-family: ${fontFamily}, Menlo, Consolas, "Fira Code", monospace;
   --font-size: ${fontSize || 10}px;
@@ -208,18 +212,36 @@
     }
   };
 
+  function generateScrollbarsStyle(scrollbars = true) {
+    if (!scrollbars) return '';
+    // language=CSS
+    return `
+      .-theme-with-dark-background ::-webkit-scrollbar,
+      :host-context(.-theme-with-dark-background) ::-webkit-scrollbar {
+        width: 10px !important;
+        height: 10px !important;
+        opacity: 0 !important;
+        transition: opacity 0.4s ease;
+      }
+    `;
+  }
+
   async function themeSetup() {
     storage.get(SETTINGS, async object => {
       const settings = object[SETTINGS];
       if (settings && settings.startsWith('{')) {
         const json = JSON.parse(settings);
-        const size    = json[DEVTOOLS_SIZE],
-              theme   = json[DEVTOOLS_THEME] || 'Material Oceanic',
-              current = json[DEVTOOLS_CURRENT],
-              family  = json[DEVTOOLS_FONT],
-              accent  = json[DEVTOOLS_ACCENT_COLOR];
+        const size       = json[DEVTOOLS_SIZE],
+              theme      = json[DEVTOOLS_THEME] || 'Material Oceanic',
+              current    = json[DEVTOOLS_CURRENT],
+              family     = json[DEVTOOLS_FONT],
+              scrollbars = json[DEVTOOLS_SCROLLBARS] || true,
+              accent     = json[DEVTOOLS_ACCENT_COLOR];
 
+        // Variables
         let style = styleBuilder.generateThemeVars(current, family, size, accent);
+        // Append scroll manually
+        const scroll = generateScrollbarsStyle(scrollbars);
 
         panels.applyStyleSheet(style);
         browserAction.setIcon({ path: `./public/icons/${theme}.svg` }, () => {});
@@ -233,11 +255,17 @@
         }
         // Apply def style
         panels.applyStyleSheet(css);
+        panels.applyStyleSheet(scroll);
       }
       else {
+        // Append scroll manually
+        const scroll = generateScrollbarsStyle(true);
+
         css = await fetch('dist/default.css').then(res => res.text());
         panels.applyStyleSheet(css);
+        panels.applyStyleSheet(scroll);
       }
+
     });
   }
 
@@ -253,4 +281,3 @@
   chrome.devtools.panels,
   chrome.browserAction
 );
-

@@ -22,17 +22,6 @@ input {
   }
 }
 
-::-webkit-scrollbar {
-  width: 10px !important;
-  height: 10px !important;
-  opacity: 0 !important;
-  transition: opacity 0.4s ease;
-}
-
-*:hover ::-webkit-scrollbar {
-  opacity: 1 !important;
-}
-
 ::-webkit-scrollbar-track {
   background: $background !important;
   -webkit-box-shadow: none !important;

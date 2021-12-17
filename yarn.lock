@@ -3883,6 +3883,16 @@
   "integrity" "sha512-qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw=="
   "resolved" "https://registry.npmjs.org/supports-color/-/supports-color-7.2.0.tgz"
   "version" "7.2.0"
+
+svelte@3.44.3:
+  version "3.44.3"
+  resolved "https://registry.npmjs.org/svelte/-/svelte-3.44.3.tgz"
+  integrity sha512-aGgrNCip5PQFNfq9e9tmm7EYxWLVHoFsEsmKrtOeRD8dmoGDdyTQ+21xd7qgFd8MNdKGSYvg7F9dr+Tc0yDymg==
+
+sver-compat@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.npmjs.org/sver-compat/-/sver-compat-1.5.0.tgz"
+  integrity sha1-PPh9/rTQe0o/FIJ7wYaz/QxkXNg=
   dependencies:
     "has-flag" "^4.0.0"
 

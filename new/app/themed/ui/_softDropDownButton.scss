@@ -3,7 +3,7 @@ button.soft-dropdown {
   color: $foreground;
 
   .title {
-    background: $background;
+    background: inherit;
     border-color: $contrast;
   }
 }

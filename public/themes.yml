@@ -1,7 +1,7 @@
 material:
   - oceanic:
     id: mt.oceanic
-    name: Oceanic
+    name: Material Oceanic
     className: oceanic
     desc: An oceanic blue flat theme
     light: false
@@ -47,7 +47,7 @@ material:
 
   - darker:
     id: mt.darker
-    name: Darker
+    name: Material Darker
     className: darker
     desc: A pitch-black flat theme
     light: false
@@ -93,7 +93,7 @@ material:
 
   - lighter:
     id: mt.lighter
-    name: Lighter
+    name: Material Lighter
     className: lighter
     desc: A bright light flat theme
     light: true
@@ -139,7 +139,7 @@ material:
 
   - palenight:
     id: mt.palenight
-    name: Palenight
+    name: Material Palenight
     className: palenight
     desc: A purplish flat theme
     light: false
@@ -185,7 +185,7 @@ material:
 
   - deepocean:
     id: mt.deepocean
-    name: Deep Ocean
+    name: Material Deep Ocean
     className: deepocean
     desc: A deep sea black flat theme
     light: false

@@ -1,7 +1,7 @@
 <script>
   import Footer from './Footer.svelte';
-  import {app} from '../$app';
-  import {blur} from 'svelte/transition';
+  import { app } from '../$app';
+  import { blur } from 'svelte/transition';
   import ThemeSwitcher from './ThemeSwitcher.svelte';
 </script>
 
@@ -11,7 +11,7 @@
     z-index: 3;
     width: 100%;
     min-width: 24rem;
-    height: 2.5rem;
+    height: 3.5rem;
     padding: 0.625rem 0;
     background-color: var(--accent);
     color: var(--selFg);
@@ -33,11 +33,15 @@
 </style>
 
 {#if $app.notifying == true}
-    <div class="alert" transition:blur="{{amount: 10}}">Close and reopen DevTools to apply your changes!</div>
+  <div class='alert' transition:blur='{{amount: 10}}'>
+    Close and reopen DevTools to apply your changes!<br>
+    <strong>Do not forget to change the theme to Light or Dark according to your selected theme!</strong>
+  </div>
+
 {/if}
 
-<div class="container">
-    <ThemeSwitcher></ThemeSwitcher>
+<div class='container'>
+  <ThemeSwitcher></ThemeSwitcher>
 
-    <Footer></Footer>
+  <Footer></Footer>
 </div>

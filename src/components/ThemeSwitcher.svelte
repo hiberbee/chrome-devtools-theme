@@ -2,7 +2,7 @@
   import Palette from './Palette.svelte';
   import ThemeSelector from './ThemeSelector.svelte';
   import ThemePreview from './ThemePreview.svelte';
-  import FontSettings from './FontSettings.svelte';
+  import Settings from './Settings.svelte';
   import {app} from '../$app';
   import {fade, slide} from 'svelte/transition';
 </script>
@@ -32,7 +32,7 @@
         <div class="first-col">
             <ThemeSelector></ThemeSelector>
 
-            <FontSettings></FontSettings>
+            <Settings></Settings>
         </div>
 
         <div class="second-col preview">

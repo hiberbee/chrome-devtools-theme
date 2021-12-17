@@ -1,5 +1,5 @@
-import {writable} from 'svelte/store';
-import {DEVTOOLS_ACCENT_COLOR, DEVTOOLS_CURRENT, DEVTOOLS_FONT, DEVTOOLS_SIZE, DEVTOOLS_THEME, SETTINGS, storage} from './storage';
+import { writable } from 'svelte/store';
+import { DEVTOOLS_ACCENT_COLOR, DEVTOOLS_CURRENT, DEVTOOLS_FONT, DEVTOOLS_SCROLLBARS, DEVTOOLS_SIZE, DEVTOOLS_THEME, SETTINGS, storage } from './storage';
 
 /**
  * @typedef Theme {object}
@@ -42,6 +42,12 @@ class App {
      * @private
      */
     this._currentAccentColor = null;
+    /**
+     * Whether scrollbars are enabled
+     * @type {boolean}
+     * @private
+     */
+    this._scrollbars = true;
 
     /**
      * List of available themes
@@ -62,6 +68,7 @@ class App {
     this.defaults = {
       fontSize: 11,
       fontFamily: 'Menlo',
+      accentColor: '#80cbc4'
     };
 
     // Import data
@@ -97,12 +104,12 @@ class App {
       // Simulate changing colors
       this._currentTheme = {
         ...value,
-        colors: {},
+        colors: {}
       };
 
       this.saveCurrent(value);
 
-      app.update($app => new App({...$app, _currentTheme: {...value}}));
+      app.update($app => new App({ ...$app, _currentTheme: { ...value } }));
     }
   }
 
@@ -172,7 +179,7 @@ class App {
   }
 
   /**
-   * Sets the current font family
+   * Sets the current accent
    * @param {string} value
    */
   set currentAccentColor(value) {
@@ -181,6 +188,28 @@ class App {
     this.saveAccentColor(value);
   }
 
+  /**
+   * Scrollbars enabled ?
+   * @returns {boolean}
+   */
+  get scrollbars() {
+    return this._scrollbars;
+  }
+
+  /**
+   * Sets the scrollbars state
+   * @param value
+   */
+  set scrollbars(value) {
+    this._notify(this._scrollbars, value);
+    this._scrollbars = value;
+    this.saveScrollbars(value);
+  }
+
+  /**
+   * Load Themes
+   * @param themes
+   */
   loadThemes(themes) {
     this.themes = themes.map(theme => {
       return {
@@ -189,7 +218,7 @@ class App {
         description: theme.description,
         dark: theme.dark,
         colors: theme,
-        accent: theme.accent,
+        accent: theme.accent
       };
     });
   }
@@ -208,13 +237,13 @@ class App {
    * @param {string} name
    */
   saveTheme(name) {
-    storage.set({[DEVTOOLS_THEME]: name}, () => {
+    storage.set({ [DEVTOOLS_THEME]: name }, () => {
       if (chrome && chrome.browserAction) {
         chrome.browserAction.setIcon({
-          path: `/public/icons/${name}.svg`,
+          path: `/public/icons/${name}.svg`
         });
         chrome.browserAction.setTitle({
-          title: `Material Theme Devtools - ${name}`,
+          title: `Material Theme Devtools - ${name}`
         });
       }
     });
@@ -225,7 +254,7 @@ class App {
    * @param {string} family
    */
   saveFontFamily(family) {
-    storage.set({[DEVTOOLS_FONT]: family}, () => {});
+    storage.set({ [DEVTOOLS_FONT]: family }, () => {});
   }
 
   /**
@@ -233,7 +262,7 @@ class App {
    * @param {number} size
    */
   saveFontSize(size) {
-    storage.set({[DEVTOOLS_SIZE]: size}, () => {});
+    storage.set({ [DEVTOOLS_SIZE]: size }, () => {});
   }
 
   /**
@@ -241,15 +270,23 @@ class App {
    * @param theme
    */
   saveCurrent(theme) {
-    storage.set({[DEVTOOLS_CURRENT]: theme}, () => {});
+    storage.set({ [DEVTOOLS_CURRENT]: theme }, () => {});
   }
 
   /**
-   * Save current theme
+   * Save current accent color
    * @param color {string}
    */
   saveAccentColor(color) {
-    storage.set({[DEVTOOLS_ACCENT_COLOR]: color}, () => {});
+    storage.set({ [DEVTOOLS_ACCENT_COLOR]: color }, () => {});
+  }
+
+  /**
+   * Save current accent color
+   * @param state {boolean}
+   */
+  saveScrollbars(state) {
+    storage.set({ [DEVTOOLS_SCROLLBARS]: state }, () => {});
   }
 
   /**
@@ -262,6 +299,7 @@ class App {
       this._currentFontFamily = object[DEVTOOLS_FONT] || this.defaults.fontFamily;
       this._currentFontSize = object[DEVTOOLS_SIZE] || this.defaults.fontSize;
       this._currentAccentColor = object[DEVTOOLS_ACCENT_COLOR] || null;
+      this._scrollbars = object[DEVTOOLS_SCROLLBARS] ?? true;
       this.currentTheme = this.getTheme(this._currentThemeName || 'Material Oceanic');
     });
 
@@ -293,7 +331,7 @@ class App {
    * @private
    */
   _clearNotify(_) {
-    return app.update(app => new App({...app, notifying: false}));
+    return app.update(app => new App({ ...app, notifying: false }));
   }
 }
 

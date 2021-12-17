@@ -14,6 +14,7 @@ export const styleBuilder = {
                currentFontFamily = 'Menlo',
                currentFontSize = 14,
                accentColor = null,
+               scrollbars = true
              } = {}) {
     // Extract colors
     if (currentTheme && currentTheme.colors) {
@@ -44,7 +45,7 @@ export const styleBuilder = {
               operators,
               attributes,
               numbers,
-              parameters,
+              parameters
             } = currentTheme.colors;
 
       // Create a style tag with css variables with colors
@@ -82,6 +83,7 @@ export const styleBuilder = {
         fontFamily: currentFontFamily,
         fontSize: currentFontSize,
         accentColor,
+        scrollbars
       });
 
       const styleElem = document.getElementById('inject-style');
@@ -163,8 +165,9 @@ export const styleBuilder = {
            parameters,
            fontFamily,
            fontSize,
-           accentColor,
+           accentColor
          }) {
+    // language=CSS
     return `
   :root {
   --bg: ${background};
@@ -197,11 +200,11 @@ export const styleBuilder = {
   --numbers: ${numbers};
   --links: ${links};
   --parameters: ${parameters};
-  
+
   --ui-font-family: Roboto, Helvetica Neue, Arial, sans-serif;
   --font-family: ${fontFamily}, Menlo, Consolas, "Fira Code", monospace;
   --font-size: ${fontSize || 10}px;
   }
 `;
-  },
+  }
 };

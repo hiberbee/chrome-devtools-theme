@@ -78,9 +78,9 @@
     "resolve" "^1.17.0"
 
 "@rollup/plugin-node-resolve@13.1.1":
-  version "13.1.1"
-  resolved "https://registry.npmjs.org/@rollup/plugin-node-resolve/-/plugin-node-resolve-13.1.1.tgz"
-  integrity sha512-6QKtRevXLrmEig9UiMYt2fSvee9TyltGRfw+qSs6xjUnxwjOzTOqy+/Lpxsgjb8mJn1EQNbCDAvt89O4uzL5kw==
+  "integrity" "sha512-6QKtRevXLrmEig9UiMYt2fSvee9TyltGRfw+qSs6xjUnxwjOzTOqy+/Lpxsgjb8mJn1EQNbCDAvt89O4uzL5kw=="
+  "resolved" "https://registry.npmjs.org/@rollup/plugin-node-resolve/-/plugin-node-resolve-13.1.1.tgz"
+  "version" "13.1.1"
   dependencies:
     "@rollup/pluginutils" "^3.1.0"
     "@types/resolve" "1.17.1"
@@ -3405,10 +3405,10 @@
   dependencies:
     "estree-walker" "^0.6.1"
 
-rollup@2.61.1:
-  version "2.61.1"
-  resolved "https://registry.npmjs.org/rollup/-/rollup-2.61.1.tgz"
-  integrity sha512-BbTXlEvB8d+XFbK/7E5doIcRtxWPRiqr0eb5vQ0+2paMM04Ye4PZY5nHOQef2ix24l/L0SpLd5hwcH15QHPdvA==
+"rollup@^1.20.0||^2.0.0", "rollup@^2.0.0", "rollup@^2.38.3", "rollup@^2.42.0", "rollup@>=2.0.0", "rollup@2.61.1":
+  "integrity" "sha512-BbTXlEvB8d+XFbK/7E5doIcRtxWPRiqr0eb5vQ0+2paMM04Ye4PZY5nHOQef2ix24l/L0SpLd5hwcH15QHPdvA=="
+  "resolved" "https://registry.npmjs.org/rollup/-/rollup-2.61.1.tgz"
+  "version" "2.61.1"
   optionalDependencies:
     "fsevents" "~2.3.2"
 
@@ -3883,23 +3883,13 @@ rollup@2.61.1:
   "integrity" "sha512-qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw=="
   "resolved" "https://registry.npmjs.org/supports-color/-/supports-color-7.2.0.tgz"
   "version" "7.2.0"
-
-svelte@3.44.3:
-  version "3.44.3"
-  resolved "https://registry.npmjs.org/svelte/-/svelte-3.44.3.tgz"
-  integrity sha512-aGgrNCip5PQFNfq9e9tmm7EYxWLVHoFsEsmKrtOeRD8dmoGDdyTQ+21xd7qgFd8MNdKGSYvg7F9dr+Tc0yDymg==
-
-sver-compat@^1.5.0:
-  version "1.5.0"
-  resolved "https://registry.npmjs.org/sver-compat/-/sver-compat-1.5.0.tgz"
-  integrity sha1-PPh9/rTQe0o/FIJ7wYaz/QxkXNg=
   dependencies:
     "has-flag" "^4.0.0"
 
-"svelte@>=3.5.0", "svelte@3.44.2":
-  "integrity" "sha512-jrZhZtmH3ZMweXg1Q15onb8QlWD+a5T5Oca4C1jYvSURp2oD35h4A5TV6t6MEa93K4LlX6BkafZPdQoFjw/ylA=="
-  "resolved" "https://registry.npmjs.org/svelte/-/svelte-3.44.2.tgz"
-  "version" "3.44.2"
+"svelte@>=3.5.0", "svelte@3.44.3":
+  "integrity" "sha512-aGgrNCip5PQFNfq9e9tmm7EYxWLVHoFsEsmKrtOeRD8dmoGDdyTQ+21xd7qgFd8MNdKGSYvg7F9dr+Tc0yDymg=="
+  "resolved" "https://registry.npmjs.org/svelte/-/svelte-3.44.3.tgz"
+  "version" "3.44.3"
 
 "sver-compat@^1.5.0":
   "integrity" "sha1-PPh9/rTQe0o/FIJ7wYaz/QxkXNg="

@@ -330,5 +330,4 @@ material-style.min.css
 release.zip
 release/
 
-public/bundle.css
-public/bundle.css.map
+public

@@ -8,6 +8,7 @@ export const styleBuilder = {
    * @param currentFontFamily
    * @param currentFontSize
    * @param accentColor
+   * @param scrollbars
    */
   applyTheme({
                currentTheme,
@@ -45,7 +46,10 @@ export const styleBuilder = {
               operators,
               attributes,
               numbers,
-              parameters
+              parameters,
+              green,
+              red,
+              yellow
             } = currentTheme.colors;
 
       // Create a style tag with css variables with colors
@@ -80,6 +84,16 @@ export const styleBuilder = {
         numbers,
         attributes,
         parameters,
+        green,
+        red,
+        yellow,
+        blue,
+        purple,
+        orange,
+        cyan,
+        white,
+        gray,
+        error,
         fontFamily: currentFontFamily,
         fontSize: currentFontSize,
         accentColor,
@@ -163,48 +177,68 @@ export const styleBuilder = {
            numbers,
            attributes,
            parameters,
+           green,
+           red,
+           yellow,
+           blue,
+           purple,
+           orange,
+           cyan,
+           white,
+           gray,
+           error,
            fontFamily,
            fontSize,
            accentColor
          }) {
     // language=CSS
     return `
-  :root {
-  --bg: ${background};
-  --fg: ${foreground};
-  --text: ${text};
-  --selBg: ${selectBg};
-  --selFg: ${selectFg};
-  --selFg2: ${selectFg2};
-  --button: ${button};
-  --disabled: ${disabled};
-  --contrast: ${contrast};
-  --second: ${second};
-  --active: ${table};
-  --border: ${border};
-  --hl: ${hl};
-  --tree: ${tree};
-  --notif: ${notif};
-  --accent: ${accentColor || accent};
-  --excluded: ${excluded};
+      :root {
+        --bg: ${background};
+        --fg: ${foreground};
+        --text: ${text};
+        --selBg: ${selectBg};
+        --selFg: ${selectFg};
+        --selFg2: ${selectFg2};
+        --button: ${button};
+        --disabled: ${disabled};
+        --contrast: ${contrast};
+        --second: ${second};
+        --active: ${table};
+        --border: ${border};
+        --hl: ${hl};
+        --tree: ${tree};
+        --notif: ${notif};
+        --accent: ${accentColor || accent};
+        --excluded: ${excluded};
 
-  --tags: ${tags};
-  --attributes: ${attributes};
-  --comments: ${comments};
-  --keywords: ${keywords};
-  --errors: ${errors};
-  --vars: ${vars};
-  --operators: ${operators};
-  --functions: ${functions};
-  --strings: ${strings};
-  --numbers: ${numbers};
-  --links: ${links};
-  --parameters: ${parameters};
+        --tags: ${tags};
+        --attributes: ${attributes};
+        --comments: ${comments};
+        --keywords: ${keywords};
+        --errors: ${errors};
+        --vars: ${vars};
+        --operators: ${operators};
+        --functions: ${functions};
+        --strings: ${strings};
+        --numbers: ${numbers};
+        --links: ${links};
+        --parameters: ${parameters};
+        --green: ${green};
+        --red: ${red};
+        --yellow: ${yellow};
+        --blue: ${blue};
+        --purple: ${purple};
+        --orange: ${orange};
+        --cyan: ${cyan};
+        --white: ${white};
+        --gray: ${gray};
+        --error: ${error};
 
-  --ui-font-family: Roboto, Helvetica Neue, Arial, sans-serif;
-  --font-family: ${fontFamily}, Menlo, Consolas, "Fira Code", monospace;
-  --font-size: ${fontSize || 10}px;
-  }
-`;
+        --ui-font-family: Roboto, Helvetica Neue, Arial, sans-serif;
+        --font-family: ${fontFamily}, Menlo, Consolas, "Fira Code", monospace;
+        --font-size: ${fontSize || 10}px;
+      }
+    `;
   }
 };

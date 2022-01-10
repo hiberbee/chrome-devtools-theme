@@ -51,6 +51,16 @@ $number-color: var(--numbers);
 $numbers: var(--numbers);
 $link-color: var(--links);
 $links: var(--links);
+$green: var(--green);
+$red: var(--red);
+$yellow: var(--yellow);
+$blue: var(--blue);
+$purple: var(--purple);
+$orange: var(--orange);
+$cyan: var(--cyan);
+$white: var(--white);
+$gray: var(--gray);
+$error: var(--error);
 $text-color: var(--text-color);
 $ignored-color: var(--ignored-color);
 $uiFontFamily: var(--ui-font-family, Roboto, sans-serif);
@@ -78,6 +88,7 @@ $fontSize: var(--font-size, 11);
   --color-accent-green: #{$string-color} !important;
   --color-green: #{$string-color} !important;
   --divider-line: #{$border} !important;
+
   --color-background-hover-overlay: #{$tree} !important;
   --color-background-elevation-0: #{$contrast} !important;
   --color-background-elevation-1: #{$button} !important;
@@ -87,9 +98,11 @@ $fontSize: var(--font-size, 11);
   --color-selection-highlight-border: #{$accent1} !important;
   --color-match-highlight: #{$highlight} !important;
   --image-file-chromeSelectDark: none !important;
+
   --override-chrome-select-border-color: #{$button} !important;
   --override-node-text-label-color: #{$fg} !important;
   --override-dom-tag-name-color: #{$tag-name-color} !important;
+
   --color-syntax-1: #{$error-color} !important;
   --color-syntax-2: #{$tag-name-color} !important;
   --color-syntax-3: #{$string-color} !important;
@@ -99,11 +112,13 @@ $fontSize: var(--font-size, 11);
   --color-syntax-7: #{$second} !important;
   --color-syntax-8: #{$fg} !important;
   --box-shadow-outline-color: none;
+
   --color-scrollbar-mac: #{$accent1Alpha} !important;
   --color-scrollbar-other: #{$accent1Alpha} !important;
   --color-scrollbar-mac-hover: #{$accent1} !important;
   --color-scrollbar-other-hover: #{$accent1} !important;
   --input-outline: #{$borderLight} !important;
+
   --color-input-outline: #{$borderLight} !important;
   --color-input-outline-active: #{$accent1} !important;
   --color-input-outline-disabled: #{$disabled} !important;
@@ -113,6 +128,7 @@ $fontSize: var(--font-size, 11);
   --color-button-secondary-background-hovering: #{$highlight} !important;
   --color-button-secondary-background-pressed: #{$highlight} !important;
   --color-image-preview-background: #{$bg} !important;
+
   --color-ic-file-document: #{$function-color} !important;
   --color-ic-file-image: #{$string-color} !important;
   --color-ic-file-font: #{$link-color} !important;
@@ -120,6 +136,7 @@ $fontSize: var(--font-size, 11);
   --color-ic-file-stylesheet: #{$keyword-color} !important;
   --color-ic-file-webbundle: #{$text} !important;
   --color-ic-file-default: #{$fg} !important;
+
   --override-tabbed-dark-mode-bg-color: #{$contrast} !important;
 
   --legacy-accent-color: #{$accent1} !important;
@@ -135,6 +152,50 @@ $fontSize: var(--font-size, 11);
   --legacy-item-selection-bg-color: #{$selBg} !important;
   --legacy-item-selection-fg-color: #{$selFg} !important;
   --legacy-item-selection-inactive-bg-color: #{$lighterBg} !important;
+
+  --lighthouse-red: #{$error} !important;
+  --lighthouse-orange: #{$yellow} !important;
+  --lighthouse-green: #{$green} !important;
+
+  --issue-color-red: #{$error} !important;
+  --issue-color-yellow: #{$yellow} !important;
+  --issue-color-blue: #{$blue} !important;
+
+  --color-error-text: #{$error} !important;
+  --color-image-preview-background: #{$bg} !important;
+  --color-input-outline-error: #{$error} !important;
+  --color-input-text-disabled: #{$disabled} !important;
+  --color-button-primary-text: #{$fg} !important;
+  --color-button-secondary-border: #{$button} !important;
+
+  --color-token-variable: #{$var-color} !important;
+  --color-token-property: #{$attribute-name-color} !important;
+  --color-token-type: #{$tag-name-color} !important;
+  --color-token-definition: #{$string-color} !important;
+  --color-token-variable-special: #{$link-color} !important;
+  --color-token-builtin: #{$function-color} !important;
+  --color-token-keyword: #{$keyword-color} !important;
+  --color-token-number: #{$number-color} !important;
+  --color-token-string: #{$string-color} !important;
+  --color-token-string-special: #{$string-color} !important;
+  --color-token-atom: #{$attribute-name-color} !important;
+  --color-token-tag: #{$tag-name-color} !important;
+  --color-token-attribute: #{$attribute-name-color} !important;
+  --color-token-attribute-value: #{$string-color} !important;
+  --color-token-comment: #{$comment-color} !important;
+  --color-token-meta: #{$keyword-color} !important;
+
+  --color-secondary-cursor: #{$primary} !important;
+  --color-line-number: #{$comment-color} !important;
+  --color-matching-bracket-underline: #{$accent1} !important;
+  --color-matching-bracket-background: rgb(0 0 0 / 7%);
+  --color-nonmatching-bracket-underline: #{$error} !important;
+  --color-nonmatching-bracket-background: rgb(255 0 0 / 7%);
+  --color-editor-selection: #{$selBg} !important;
+  --color-editor-selection-blurred: #{$excluded} !important;
+  --color-selected-option: #{$selFg} !important;
+  --color-selected-option-background: #{$highlight} !important;
+  --color-highlighted-line: #{$tree} !important;
 
   --accent-color: #{$accent1} !important;
   --accent-fg-color: #{$accent1} !important;

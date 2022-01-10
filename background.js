@@ -53,7 +53,17 @@
                 operators,
                 attributes,
                 numbers,
-                parameters
+                parameters,
+                green,
+                red,
+                yellow,
+          blue,
+          purple,
+          orange,
+          cyan,
+          white,
+          gray,
+          error,
               } = currentTheme.colors;
 
         return this.styles({
@@ -85,6 +95,16 @@
           numbers,
           attributes,
           parameters,
+          green,
+          red,
+          yellow,
+          blue,
+          purple,
+          orange,
+          cyan,
+          white,
+          gray,
+          error,
           fontFamily: currentFontFamily,
           fontSize: currentFontSize,
           accentColor: accentColor
@@ -166,54 +186,77 @@
              numbers,
              attributes,
              parameters,
+             green,
+             red,
+             yellow,
+             blue,
+             purple,
+             orange,
+             cyan,
+             white,
+             gray,
+             error,
              fontFamily,
              fontSize,
              accentColor
            }) {
       // language=CSS
       return `
-  :root {
-  --bg: ${background};
-  --fg: ${foreground};
-  --text: ${primary};
-  --selBg: ${selectBg};
-  --selFg: ${selectFg};
-  --selFg2: ${selectFg2};
-  --button: ${button};
-  --disabled: ${disabled};
-  --contrast: ${contrast};
-  --second: ${second};
-  --active: ${table};
-  --border: ${border};
-  --hl: ${highlight};
-  --tree: ${tree};
-  --notif: ${notif};
-  --accent: ${accentColor || accent};
-  --excluded: ${excluded};
+        :root {
+          --bg: ${background};
+          --fg: ${foreground};
+          --text: ${primary};
+          --selBg: ${selectBg};
+          --selFg: ${selectFg};
+          --selFg2: ${selectFg2};
+          --button: ${button};
+          --disabled: ${disabled};
+          --contrast: ${contrast};
+          --second: ${second};
+          --active: ${table};
+          --border: ${border};
+          --hl: ${highlight};
+          --tree: ${tree};
+          --notif: ${notif};
+          --accent: ${accentColor || accent};
+          --excluded: ${excluded};
 
-  --tags: ${tags};
-  --attributes: ${attributes};
-  --comments: ${comments};
-  --keywords: ${keywords};
-  --errors: ${errors};
-  --vars: ${vars};
-  --operators: ${operators};
-  --functions: ${functions};
-  --strings: ${strings};
-  --numbers: ${numbers};
-  --links: ${links};
-  --parameters: ${parameters};
+          --tags: ${tags};
+          --attributes: ${attributes};
+          --comments: ${comments};
+          --keywords: ${keywords};
+          --errors: ${errors};
+          --vars: ${vars};
+          --operators: ${operators};
+          --functions: ${functions};
+          --strings: ${strings};
+          --numbers: ${numbers};
+          --links: ${links};
+          --parameters: ${parameters};
+          --green: ${green};
+          --red: ${red};
+          --yellow: ${yellow};
+          --blue: ${blue};
+          --purple: ${purple};
+          --orange: ${orange};
+          --cyan: ${cyan};
+          --white: ${white};
+          --gray: ${gray};
+          --error: ${error};
 
-  --ui-font-family: Roboto, Helvetica Neue, Arial, sans-serif;
-  --font-family: ${fontFamily}, Menlo, Consolas, "Fira Code", monospace;
-  --font-size: ${fontSize || 10}px;
-  }
-`;
+
+          --ui-font-family: Roboto, Helvetica Neue, Arial, sans-serif;
+          --font-family: ${fontFamily}, Menlo, Consolas, "Fira Code", monospace;
+          --font-size: ${fontSize || 10}px;
+        }
+      `;
     }
   };
 
   function generateScrollbarsStyle(scrollbars = true) {
-    if (!scrollbars) return '';
+    if (!scrollbars) {
+      return '';
+    }
     // language=CSS
     return `
       :host ::-webkit-scrollbar,
@@ -250,10 +293,10 @@
 
         // Apply theme
         if (current.dark) {
-          css = await fetch('https://raw.githubusercontent.com/mallowigi/material-dev-tools/master/dist/dark.css').then(res => res.text());
+          css = await fetch('dist/dark.css').then(res => res.text());
         }
         else {
-          css = await fetch('https://raw.githubusercontent.com/mallowigi/material-dev-tools/master/dist/light.css').then(res => res.text());
+          css = await fetch('dist/light.css').then(res => res.text());
         }
         // Apply def style
         panels.applyStyleSheet(css);
@@ -263,7 +306,7 @@
         // Append scroll manually
         const scroll = generateScrollbarsStyle(true);
 
-        css = await fetch('https://raw.githubusercontent.com/mallowigi/material-dev-tools/master/dist/default.css').then(res => res.text());
+        css = await fetch('dist/default.css').then(res => res.text());
         panels.applyStyleSheet(css);
         panels.applyStyleSheet(scroll);
       }

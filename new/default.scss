@@ -8,8 +8,8 @@
   --text: #607d8b;
   --selBg: #546e7a;
   --selBgAlpha: #546e7a70;
-  --selFg: #fff;
-  --selFg2: #111;
+  --selFg: #ffffff;
+  --selFg2: #111111;
   --button: #2e3c43;
   --second: #32424a;
   --disabled: #415967;
@@ -32,7 +32,7 @@
   --comments: #546e7a;
   --keywords: #c792ea;
   --errors: #ff5370;
-  --vars: #eff;
+  --vars: #eeffff;
   --operators: #89ddff;
   --functions: #82aaff;
   --strings: #c3e88d;
@@ -41,6 +41,16 @@
   --text-color: #c3cee3;
   --ignored-color: #ab79c7;
   --parameters: #f78c6c;
+  --green: #c3e88d;
+  --red: #f07178;
+  --yellow: #ffcb6b;
+  --blue: #82aaff;
+  --purple: #c792ea;
+  --orange: #f78c6c;
+  --cyan: #89ddff;
+  --white: #eeffff;
+  --gray: #546e7a;
+  --error: #ff5370;
 }
 
 $bg: var(--bg);
@@ -96,6 +106,16 @@ $number-color: var(--numbers);
 $numbers: var(--numbers);
 $link-color: var(--links);
 $links: var(--links);
+$green: var(--green);
+$red: var(--red);
+$yellow: var(--yellow);
+$blue: var(--blue);
+$purple: var(--purple);
+$orange: var(--orange);
+$cyan: var(--cyan);
+$white: var(--white);
+$gray: var(--gray);
+$error: var(--error);
 $text-color: var(--text-color);
 $ignored-color: var(--ignored-color);
 $uiFontFamily: var(--ui-font-family, Roboto, sans-serif);
@@ -182,6 +202,52 @@ html,
   --legacy-item-selection-bg-color: #{$selBg} !important;
   --legacy-item-selection-fg-color: #{$selFg} !important;
   --legacy-item-selection-inactive-bg-color: #{$lighterBg} !important;
+
+
+  --lighthouse-red: #{$error} !important;
+  --lighthouse-orange: #{$yellow} !important;
+  --lighthouse-green: #{$green} !important;
+
+  --issue-color-red: #{$error} !important;
+  --issue-color-yellow: #{$yellow} !important;
+  --issue-color-blue: #{$blue} !important;
+
+  --color-error-text: #{$error} !important;
+  --color-image-preview-background: #{$bg} !important;
+  --color-input-outline-error: #{$error} !important;
+  --color-input-text-disabled: #{$disabled} !important;
+  --color-button-primary-text: #{$fg} !important;
+  --color-button-secondary-border: #{$button} !important;
+
+  --color-token-variable: #{$var-color} !important;
+  --color-token-property: #{$attribute-name-color} !important;
+  --color-token-type: #{$tag-name-color} !important;
+  --color-token-definition: #{$string-color} !important;
+  --color-token-variable-special: #{$link-color} !important;
+  --color-token-builtin: #{$function-color} !important;
+  --color-token-keyword: #{$keyword-color} !important;
+  --color-token-number: #{$number-color} !important;
+  --color-token-string: #{$string-color} !important;
+  --color-token-string-special: #{$string-color} !important;
+  --color-token-atom: #{$attribute-name-color} !important;
+  --color-token-tag: #{$tag-name-color} !important;
+  --color-token-attribute: #{$attribute-name-color} !important;
+  --color-token-attribute-value: #{$string-color} !important;
+  --color-token-comment: #{$comment-color} !important;
+  --color-token-meta: #{$keyword-color} !important;
+
+  --color-secondary-cursor: #{$primary} !important;
+  --color-line-number: #{$comment-color} !important;
+  --color-matching-bracket-underline: #{$accent1} !important;
+  --color-matching-bracket-background: rgb(0 0 0 / 7%);
+  --color-nonmatching-bracket-underline: #{$error} !important;
+  --color-nonmatching-bracket-background: rgb(255 0 0 / 7%);
+  --color-editor-selection: #{$selBg} !important;
+  --color-editor-selection-blurred: #{$excluded} !important;
+  --color-selected-option: #{$selFg} !important;
+  --color-selected-option-background: #{$highlight} !important;
+  --color-highlighted-line: #{$tree} !important;
+
 
   --accent-color: #{$accent1} !important;
   --accent-fg-color: #{$accent1} !important;

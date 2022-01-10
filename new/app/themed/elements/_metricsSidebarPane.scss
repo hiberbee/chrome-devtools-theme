@@ -19,22 +19,22 @@
 }
 
 .metrics .margin {
-  background: $background !important;
+  background: $orange !important;
   border-color: $disabled;
 }
 
 .metrics .border {
   border-color: $disabled;
-  background: $second !important;
+  background: $yellow !important;
 }
 
 .metrics .padding {
-  background: $active !important;
+  background: $green !important;
   border-color: $disabled;
 }
 
 .metrics .content {
-  background: $highlight !important;
+  background: $cyan !important;
   border-color: $disabled;
 }
 

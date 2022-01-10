@@ -250,10 +250,10 @@
 
         // Apply theme
         if (current.dark) {
-          css = await fetch('dist/dark.css').then(res => res.text());
+          css = await fetch('https://raw.githubusercontent.com/mallowigi/material-dev-tools/master/dist/dark.css').then(res => res.text());
         }
         else {
-          css = await fetch('dist/light.css').then(res => res.text());
+          css = await fetch('https://raw.githubusercontent.com/mallowigi/material-dev-tools/master/dist/light.css').then(res => res.text());
         }
         // Apply def style
         panels.applyStyleSheet(css);
@@ -263,7 +263,7 @@
         // Append scroll manually
         const scroll = generateScrollbarsStyle(true);
 
-        css = await fetch('dist/default.css').then(res => res.text());
+        css = await fetch('https://raw.githubusercontent.com/mallowigi/material-dev-tools/master/dist/default.css').then(res => res.text());
         panels.applyStyleSheet(css);
         panels.applyStyleSheet(scroll);
       }

@@ -12,6 +12,10 @@
   border-left-color: $borderLight;
 }
 
+.data-grid th .sort-order-icon-container {
+  background-color: $contrast;
+}
+
 .data-grid th {
   background-color: $contrast;
   border-bottom-color: $borderLight;
@@ -32,7 +36,7 @@
 }
 
 .data-grid td.disclosure::before {
-  background-color: $background;
+  background-color: $fg;
 }
 
 .data-grid-data-grid-node:nth-child(2n) {

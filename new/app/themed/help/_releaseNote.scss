@@ -6,6 +6,15 @@
 
 .release-note-container li:hover {
   color: $link-color;
+
+  > * {
+    background: $highlight;
+  }
+}
+
+.release-note-title {
+  font-weight: bold;
+  color: $fg;
 }
 
 .release-note-container li:not(:hover) .release-note-subtitle {
@@ -14,6 +23,7 @@
 
 .release-note-action-container > button {
   color: $primary;
+  background: $button;
 }
 
 .release-note-container .release-note-link {

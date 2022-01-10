@@ -241,7 +241,6 @@ out
 
 # Nuxt.js build / generate output
 .nuxt
-dist
 
 # Gatsby files
 .cache/
@@ -321,7 +320,6 @@ gradle-app.setting
 material-style.min.css
 
 # Project exclude paths
-/dist/
 /__sapper__/
 /static/
 /public/bundle.*

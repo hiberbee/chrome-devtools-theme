@@ -14,15 +14,16 @@
 
 .console-prompt-editor-container {
   background: $contrast;
-  border-bottom: 2px solid $borderLight;
+
 
   .widget {
     background: $contrast;
   }
 }
 
-.console-prompt-editor-container:focus {
-  border-bottom: 2px solid $accent1;
+.cm-editor {
+  border: 1px solid $borderLight;
+  border-radius: 6px;
 }
 
 .console-timestamp {

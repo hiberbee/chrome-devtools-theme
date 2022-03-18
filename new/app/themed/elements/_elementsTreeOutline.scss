@@ -26,30 +26,10 @@
 
 .elements-disclosure li.selected {
   position: relative;
-
-  &::after {
-    content: ' ';
-    position: fixed;
-    left: 0;
-    right: 0;
-    background: $tree;
-    border-left: 2px solid $accent1;
-    z-index: -1;
-  }
 }
 
 .elements-disclosure li.selected:focus {
   color: $selFg;
-
-  &::after {
-    content: ' ';
-    position: fixed;
-    left: 0;
-    right: 0;
-    background: $selBg;
-    border-left: 2px solid $accent1;
-    z-index: -1;
-  }
 }
 
 .elements-disclosure li.elements-drag-over .selection {
@@ -111,7 +91,7 @@
 .elements-disclosure .elements-tree-outline:not(.hide-selection-when-blurred) .selection {
   background-color: var(--editor-selection-inactive-bg-color);
 
-  @include indicator-right;
+  @include indicator;
 }
 
 .elements-disclosure

@@ -238,6 +238,10 @@ x-link.devtools-link {
   color: #292;
 }
 
+.cm-line {
+  caret-color: inherit !important;
+}
+
 .cm-link {
   color: $link-color;
 }
@@ -281,6 +285,10 @@ x-link.devtools-link {
 .cm-variable-3,
 .cm-type {
   color: $var-color;
+}
+
+.cm-content {
+  caret-color: $accent1;
 }
 
 .cm-comment {
@@ -353,4 +361,18 @@ x-link.devtools-link {
 
 .cm-xml-error {
   color: $error-color;
+}
+
+.cm-tooltip.cm-tooltip-autocomplete > ul > li {
+  line-height: 1.5;
+  font-family: $fontFamily;
+  border-left: 2px solid inherit;
+
+  &[aria-selected] {
+    border-left: 2px solid $accent1;
+  }
+}
+
+.cm-completionMatchedText {
+  color: $accent1;
 }

@@ -216,7 +216,7 @@ class App {
         name: theme.name,
         className: theme.className,
         description: theme.description,
-        dark: !theme.light,
+        dark: theme.dark,
         colors: theme,
         accent: theme.accent
       };

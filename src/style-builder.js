@@ -49,7 +49,14 @@ export const styleBuilder = {
               parameters,
               green,
               red,
-              yellow
+              yellow,
+              blue,
+              purple,
+              orange,
+              cyan,
+              white,
+              gray,
+              error,
             } = currentTheme.colors;
 
       // Create a style tag with css variables with colors

@@ -21,7 +21,8 @@
     });
     const nw = Prism.plugins.NormalizeWhitespace;
 
-    let js = `// Javascript Code:
+    let js = `
+// Javascript Code:
 function foo(p) {
   console.log('foo');
   return 10;

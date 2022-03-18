@@ -1,4 +1,4 @@
-(function(w,
+(async function(w,
           storage,
           panels,
           browserAction) {
@@ -57,13 +57,13 @@
                 green,
                 red,
                 yellow,
-          blue,
-          purple,
-          orange,
-          cyan,
-          white,
-          gray,
-          error,
+                blue,
+                purple,
+                orange,
+                cyan,
+                white,
+                gray,
+                error
               } = currentTheme.colors;
 
         return this.styles({
@@ -277,7 +277,7 @@
       if (settings && settings.startsWith('{')) {
         const json = JSON.parse(settings);
         const size       = json[DEVTOOLS_SIZE],
-              theme      = json[DEVTOOLS_THEME] || 'Material Oceanic',
+              theme      = json[DEVTOOLS_THEME] || 'Oceanic',
               current    = json[DEVTOOLS_CURRENT],
               family     = json[DEVTOOLS_FONT],
               scrollbars = json[DEVTOOLS_SCROLLBARS] ?? true,
@@ -314,7 +314,7 @@
     });
   }
 
-  themeSetup();
+  await themeSetup();
   // setInterval(() => {
   //   themeSetup();
   // }, 10000);

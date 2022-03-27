@@ -23,6 +23,12 @@
   background-color: $background;
 }
 
+.filtered-list-widget-item-wrapper.selected {
+  background-color: $selBg;
+  border-bottom: $borderLight;
+  font-family: $fontFamily;
+}
+
 .filtered-list-widget {
   .filtered-list-widget-item {
     color: $foreground;
@@ -45,15 +51,22 @@
   }
 
   .tag {
-    color: $selFg;
+    color: $selFg2;
+    background: $accent1;
   }
 
   .filtered-list-widget-item .tag .highlight {
-    color: $accent2;
+    color: $accent1;
   }
 
   .not-found-text {
     color: $disabled;
     background-color: $background;
   }
+}
+
+.filtered-list-widget-item-wrapper.selected .filtered-list-widget-subtitle,
+.filtered-list-widget-item-wrapper.selected .filtered-list-widget-title,
+.filtered-list-widget-item-wrapper.selected .tag {
+  color: $selFg;
 }

@@ -10,6 +10,7 @@
 .data-grid td,
 .data-grid th {
   border-left-color: $borderLight;
+  line-height: 2;
 }
 
 .data-grid th .sort-order-icon-container {
@@ -61,11 +62,11 @@
 }
 
 .data-grid table.data tr.revealed.selected {
-  background-color: $active;
+  background-color: $selBg !important;
 }
 
 .data-grid:focus table.data tr.selected {
-  background-color: $selBg;
+  background-color: $selBg !important;
   color: $selFg;
 }
 

@@ -13,3 +13,11 @@
     color: $accent1;
   }
 }
+
+.infobar-warning,
+.-theme-with-dark-background .infobar-warning,
+:host-context(.-theme-with-dark-background) .infobar-warning {
+  --override-infobar-warning-background: #{$notif} !important;
+
+  background: $notif !important;
+}

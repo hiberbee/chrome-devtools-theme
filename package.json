@@ -5,7 +5,6 @@
   "main": "devtools.html",
   "author": "Elior Boukhobza <heliosaian@gmail.com>",
   "license": "MIT",
-  "type": "module",
   "dependencies": {
     "@github/mini-throttle": "^2.1.1",
     "compression": "1.7.4",

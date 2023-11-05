@@ -1,6 +1,16 @@
+.filter-input-container {
+  background: $contrast;
+  border: 1px solid $border;
+
+  &:hover {
+    background: $contrast;
+  }
+}
+
 .filter-input-container:focus-within,
 .filter-text-filter:not(.filter-text-empty) .filter-input-container {
-  box-shadow: none;
+  box-shadow: 2px solid $accent1;
+  border: none;
 }
 
 .filter-bar {
@@ -10,6 +20,12 @@
 
 .filter-bitset-filter span {
   text-shadow: rgba(0, 0, 0, 0.5) 0 1px 0;
+}
+
+.-theme-with-dark-background .filter-bitset-filter span,
+.filter-bitset-filter span {
+  outline: 1px solid $accent1;
+  color: $foreground;
 }
 
 .filter-bitset-filter-divider {

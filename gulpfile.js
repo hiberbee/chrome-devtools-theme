@@ -16,22 +16,15 @@ const paths = {
 };
 
 gulp.task('app', () => {
-  return gulp.src(paths.styles.public)
-    .pipe(sass())
-    .pipe(gulp.dest(paths.styles.appCss));
+  return gulp.src(paths.styles.public).pipe(sass()).pipe(gulp.dest(paths.styles.appCss));
 });
 
 gulp.task('styles', () => {
-  return gulp.src(paths.styles.src)
-    .pipe(sass())
-    .pipe(cleanCSS())
-    .pipe(gulp.dest(paths.styles.dest));
+  return gulp.src(paths.styles.src).pipe(sass()).pipe(cleanCSS()).pipe(gulp.dest(paths.styles.dest));
 });
 
 gulp.task('debugStyles', () => {
-  return gulp.src(paths.styles.src)
-    .pipe(sass())
-    .pipe(gulp.dest(paths.styles.dest));
+  return gulp.src(paths.styles.src).pipe(sass()).pipe(gulp.dest(paths.styles.dest));
 });
 
 gulp.task('watchStyles', () => {
@@ -39,23 +32,15 @@ gulp.task('watchStyles', () => {
 });
 
 gulp.task('clean', () => {
-  return gulp.src(['release',
-    'dist'], {read: false, allowEmpty: true})
-    .pipe(clean());
+  return gulp.src(['release', 'dist'], { read: false, allowEmpty: true }).pipe(clean());
 });
 
 gulp.task('copy', () => {
-  return gulp.src(['*.*',
-    '!release.zip',
-    'dist/*.css',
-    'public/**/*'], {allowEmpty: true})
-    .pipe(copy('release'));
+  return gulp.src(['*.*', '!release.zip', 'dist/*.css', 'public/**/*'], { allowEmpty: true }).pipe(copy('release'));
 });
 
 gulp.task('zip', () => {
-  return gulp.src('release/**/*')
-    .pipe(zip('release.zip'))
-    .pipe(gulp.dest('.'));
+  return gulp.src('release/**/*').pipe(zip('release.zip')).pipe(gulp.dest('.'));
 });
 
 gulp.task('release', gulp.series('clean', 'styles', 'copy', 'zip'));

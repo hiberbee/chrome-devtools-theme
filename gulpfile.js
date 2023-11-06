@@ -11,7 +11,7 @@ const paths = {
     src: 'new/**/*.scss',
     public: 'public/styles/app.scss',
     appCss: 'public/styles/',
-    dest: 'dist',
+    dest: 'src/assets',
   },
 };
 

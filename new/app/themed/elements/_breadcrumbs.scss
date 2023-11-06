@@ -23,10 +23,10 @@
   transform: rotate(45deg);
   vertical-align: top;
   width: 0.3em;
+}
 
-  &:last-child {
-    border: none;
-  }
+.crumbs .crumb:last-child::after {
+  border: none;
 }
 
 .crumbs {

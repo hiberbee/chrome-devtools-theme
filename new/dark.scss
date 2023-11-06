@@ -69,6 +69,10 @@ $fontSize: var(--font-size, 11);
 
 .-theme-with-dark-background,
 :host-context(.-theme-with-dark-background) {
+  --sys-color-cdt-base-container: #{$background} !important;
+  --override-infobar-warning-background: #{$notif} !important;
+  --override-file-tree-item-color: #{$yellow} !important;
+  --override-folder-tree-item-color: #{$cyan} !important;
   --accent-color-hover: #{$accent1Alpha} !important;
   --accent-color: #{$accent1} !important;
   --accent-fg-color: #{$accent1} !important;
@@ -98,8 +102,8 @@ $fontSize: var(--font-size, 11);
   --color-button-secondary-border: #{$button} !important;
   --color-checkbox-accent-color: #{$accent1} !important;
   --color-completion-hover: #{$hl} !important;
-  --color-continue-to-location-async-hover-border:  #{$accent1} !important;
-  --color-continue-to-location-async-hover:  #{$accent1Alpha} !important;
+  --color-continue-to-location-async-hover-border: #{$accent1} !important;
+  --color-continue-to-location-async-hover: #{$accent1Alpha} !important;
   --color-continue-to-location-hover-border: #{$accent1} !important;
   --color-continue-to-location-hover: #{$accent1Alpha} !important;
   --color-coverage-used: #{$function-color} !important;

@@ -1,6 +1,10 @@
 @charset "UTF-8";
 .-theme-with-dark-background,
 :host-context(.-theme-with-dark-background) {
+  --sys-color-cdt-base-container: var(--bg) !important;
+  --override-infobar-warning-background: var(--notif) !important;
+  --override-file-tree-item-color: var(--yellow) !important;
+  --override-folder-tree-item-color: var(--cyan) !important;
   --accent-color-hover: var(--accent) !important;
   --accent-color: var(--accent) !important;
   --accent-fg-color: var(--accent) !important;

@@ -42,13 +42,7 @@ circle.animation-keyframe-point {
 }
 
 .animation-scrubber-line {
-  background-image: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0) 5px,
-    $accent1 5px,
-    $accent1 6px,
-    rgba(255, 255, 255, 0) 6px
-  );
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 5px, $accent1 5px, $accent1 6px, rgba(255, 255, 255, 0) 6px);
 }
 
 .animation-scrubber-head {

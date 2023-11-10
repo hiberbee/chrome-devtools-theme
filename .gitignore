@@ -330,3 +330,6 @@ release.zip
 release/
 
 public
+.idea/JetClient
+.idea/lastEditedFileState.xml
+

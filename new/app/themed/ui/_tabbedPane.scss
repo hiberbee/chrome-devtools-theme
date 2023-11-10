@@ -63,6 +63,7 @@
   box-sizing: content-box;
   width: 14px !important;
   height: 14px !important;
+
   &::before {
     content: '✖';
     line-height: 1.5;

@@ -1,5 +1,6 @@
 .ax-breadcrumbs .ax-node::before {
   background-color: $foreground;
+
   &:hover {
     background-color: $accent1;
   }

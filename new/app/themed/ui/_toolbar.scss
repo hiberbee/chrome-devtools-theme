@@ -24,8 +24,7 @@
   color: $link-color;
 }
 
-.toolbar-toggled-gray:not(.toolbar-render-as-links)
-  .toolbar-button:not(.toolbar-has-glyph):not(.toolbar-has-dropdown):not(.largeicon-menu):hover {
+.toolbar-toggled-gray:not(.toolbar-render-as-links) .toolbar-button:not(.toolbar-has-glyph):not(.toolbar-has-dropdown):not(.largeicon-menu):hover {
   background-color: $contrast;
   border-color: $contrast;
 }
@@ -118,7 +117,6 @@ select.toolbar-item[data-keyboard-focus='true']:focus > * {
   background-color: $bg;
   border: none;
   box-shadow: none;
-
 }
 
 .toolbar-divider {

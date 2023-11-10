@@ -218,7 +218,7 @@ export class Store {
     storage.set({ [DEVTOOLS_THEME]: name }, () => {
       if (chrome && chrome.action) {
         chrome.action.setIcon({
-          path: `/public/icons/${name}.svg`,
+          path: `assets/icons/${name}.svg`,
         });
         chrome.action.setTitle({
           title: `Material Theme Devtools - ${name}`,

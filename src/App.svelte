@@ -24,7 +24,6 @@
     $app.loadDefaults();
 
     $app.loading = false;
-    console.log('finished loading');
   });
 </script>
 

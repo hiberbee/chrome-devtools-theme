@@ -20,6 +20,7 @@
     "build": "plasmo build",
     "dev": "plasmo dev",
     "verbose": "plasmo dev --verbose",
+    "package": "plasmo package",
     "styles": "gulp debugStyles",
     "app": "gulp app",
     "watchStyles": "gulp watchStyles",
@@ -52,6 +53,17 @@
     "homepage_url": "https://www.material-theme.com",
     "permissions": [
       "storage"
+    ],
+    "web_accessible_resources": [
+      {
+        "resources": [
+          "assets/**/*.svg"
+        ],
+        "matches": [
+          "https://*/*",
+          "file://*/*"
+        ]
+      }
     ],
     "host_permissions": [
       "https://*/*",

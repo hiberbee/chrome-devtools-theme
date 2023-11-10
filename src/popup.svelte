@@ -1,41 +1,17 @@
 <script lang="ts">
-  export let count = 0;
-  let action: string = null;
-  function increment() {
-    count += 1;
-    action = "increment";
-  }
-  function decrement() {
-    count -= 1;
-    action = "decrement";
-  }
+import App from '~App.svelte';
 </script>
 
-<style>
-  .container {
-    min-width: 470px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 47px;
-  }
-  .action {
-    color: #470;
-    font-weight: bold;
-  }
-  .text-center {
-    text-align: center;
+<style lang='scss'>
+  :global {
+    body {
+      margin: 0;
+      padding: 0;
+      min-width: 1024px;
+      min-height: 800px;
+      background: var(--bg, #263238);
+    }
   }
 </style>
 
-<div>
-  <h2 class="text-center">
-    Welcome to your <a href="https://www.plasmo.com" target="_blank">Plasmo</a> Extension!
-  </h2>
-  <div class="container">
-    <button on:click={decrement}>-</button>
-    <p>Current count: <b>{count}</b></p>
-    <button on:click={increment}>+</button>
-  </div>
-  {#if action}<p class="action text-center">{action}</p>{/if}
-</div>
+<App/>

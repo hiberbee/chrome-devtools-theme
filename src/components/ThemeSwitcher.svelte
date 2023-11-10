@@ -76,7 +76,7 @@
     h1 {
       font-size: 4em;
       font-weight: lighter;
-      line-height: 1;
+      line-height: 60px;
       margin-top: 0.25em;
       margin-bottom: 0.25em;
       letter-spacing: 0.025em;

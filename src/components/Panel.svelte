@@ -1,11 +1,11 @@
 <script>
-  import Footer from './Footer.svelte';
-  import { app } from '../$app';
+  import { app } from '~store/store.ts';
   import { blur } from 'svelte/transition';
-  import ThemeSwitcher from './ThemeSwitcher.svelte';
+  import ThemeSwitcher from '~components/ThemeSwitcher.svelte';
+  import Footer from '~components/Footer.svelte';
 </script>
 
-<style>
+<style lang='scss'>
   .alert {
     position: absolute;
     z-index: 3;
@@ -27,12 +27,12 @@
     grid-template-columns: 100%;
     grid-template-rows: [content] 100% [footer] 32px;
     grid-template-areas:
-        "content"
-        "footer";
+        'content'
+        'footer';
   }
 </style>
 
-{#if $app.notifying == true}
+{#if $app.notifying === true}
   <div class='alert' transition:blur='{{amount: 10}}'>
     Close and reopen DevTools to apply your changes!<br>
     <strong>Do not forget to change the theme to Light or Dark according to your selected theme!</strong>
@@ -41,7 +41,7 @@
 {/if}
 
 <div class='container'>
-  <ThemeSwitcher></ThemeSwitcher>
+  <ThemeSwitcher />
 
-  <Footer></Footer>
+  <Footer />
 </div>

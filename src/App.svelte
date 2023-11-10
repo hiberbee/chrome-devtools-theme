@@ -2,8 +2,8 @@
   import { onMount } from 'svelte';
 
   import allThemes from './assets/themes.json';
-  import { app } from '~store.ts';
-  // import Panel from '~src/components/Panel.svelte';
+  import { app } from '~store/store.ts';
+  import Panel from '~components/Panel.svelte';
   import Loading from '~components/Loading.svelte';
 
   onMount(async _ => {
@@ -24,6 +24,7 @@
     $app.loadDefaults();
 
     $app.loading = false;
+    console.log('finished loading');
   });
 </script>
 
@@ -41,8 +42,8 @@
 
 
 <main class='main'>
-  <Loading></Loading>
+  <Loading />
   {#if !$app.loading}
-    <!--          <Panel></Panel>-->
+    <Panel />
   {/if}
 </main>

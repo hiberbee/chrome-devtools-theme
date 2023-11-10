@@ -9,10 +9,10 @@ import {
   SETTINGS,
   storage,
   type DevtoolsSettings,
-} from 'src/storage';
-import type { Theme, Nullable, AppSettings } from '~types/types';
+} from '~store/storage';
+import type { Theme, Nullable, AppSettings, RawTheme } from '~types/types';
 
-class Store {
+export class Store {
   private _currentTheme: Nullable<Theme> = null;
   private _currentThemeName: Nullable<string> = null;
   private _currentFontSize: Nullable<number> = null;
@@ -42,11 +42,15 @@ class Store {
     fontSize: 11,
     fontFamily: 'Menlo',
     accentColor: '#80cbc4',
+    scrollbars: true,
   };
 
-  constructor(data: Partial<Store> = {}) {
+  constructor(data: Partial<Store> = {}, currentTheme = null) {
     // Import data
     Object.assign(this, data);
+    if (currentTheme) {
+      this._currentTheme = currentTheme;
+    }
   }
 
   loadDefaults() {
@@ -78,18 +82,12 @@ class Store {
       // Simulate changing colors
       this._currentTheme = {
         ...value,
-        colors: {},
+        colors: undefined,
       };
 
       this.saveCurrent(value);
 
-      app.update(
-        ($app) =>
-          new Store({
-            ...$app,
-            currentTheme: { ...value }, // Todo check if _currentTheme is needed
-          }),
-      );
+      app.update(($app) => new Store({ ...$app }, value));
     }
   }
 
@@ -190,7 +188,7 @@ class Store {
    * Load Themes
    * @param themes
    */
-  loadThemes(themes: Theme[]) {
+  loadThemes(themes: RawTheme[]) {
     this.themes = themes.map((theme) => {
       return {
         name: theme.name,
@@ -198,7 +196,7 @@ class Store {
         description: theme.description,
         dark: theme.dark,
         colors: theme,
-        // accent: theme.accent,
+        accent: theme.accent,
       };
     });
   }

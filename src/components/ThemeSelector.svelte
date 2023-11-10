@@ -1,4 +1,4 @@
-<style>
+<style lang='scss'>
   .theme-selector {
     grid-area: content;
   }
@@ -20,16 +20,17 @@
 </style>
 
 <script>
-  import {onMount} from 'svelte';
-  import {app} from '../$app';
-  import {styleBuilder} from '../style-builder';
+  import { onMount } from 'svelte';
+  import { app } from '~store/store.ts';
+
+  import { styleBuilder } from '~utils/styleBuilder';
 
   function applyTheme() {
     setTimeout(() => styleBuilder.applyTheme({
       currentTheme: $app.currentTheme,
       currentFontFamily: $app.currentFontFamily,
       currentFontSize: $app.currentFontSize,
-      currentAccentColor: $app.currentAccentColor,
+      currentAccentColor: $app.currentAccentColor
     }), 100);
   }
 
@@ -37,14 +38,14 @@
 
 </script>
 
-<div class="theme-selector">
-    <label for="theme-options">Selected Theme:</label>
-    <select class="theme-options"
-            id="theme-options"
-            on:change="{applyTheme}"
-            bind:value={$app.currentThemeName}>
-        {#each $app.themes as theme(theme.name)}
-            <option value={theme.name}>{theme.name}</option>
-        {/each}
-    </select>
+<div class='theme-selector'>
+  <label for='theme-options'>Selected Theme:</label>
+  <select class='theme-options'
+          id='theme-options'
+          on:change='{applyTheme}'
+          bind:value={$app.currentThemeName}>
+    {#each $app.themes as theme(theme.name)}
+      <option value={theme.name}>{theme.name}</option>
+    {/each}
+  </select>
 </div>

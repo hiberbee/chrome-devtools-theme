@@ -1,3 +1,6 @@
+import type { Store } from '~store/store';
+import type { Colors, AppSettings } from '~types/types';
+
 /**
  * Service to build the styles
  */
@@ -10,54 +13,48 @@ export const styleBuilder = {
    * @param accentColor
    * @param scrollbars
    */
-  applyTheme({
-               currentTheme,
-               currentFontFamily = 'Menlo',
-               currentFontSize = 14,
-               accentColor = null,
-               scrollbars = true
-             } = {}) {
+  applyTheme({ currentTheme, currentFontFamily = 'Menlo', currentFontSize = 14, currentAccentColor = null, scrollbars = true }: Partial<Store> = {}) {
     // Extract colors
     if (currentTheme && currentTheme.colors) {
       const {
-              background,
-              foreground,
-              text,
-              selectBg,
-              selectFg,
-              button,
-              disabled,
-              contrast,
-              second,
-              table,
-              border,
-              hl,
-              tree,
-              notif,
-              accent,
-              excluded,
-              comments,
-              vars,
-              links,
-              functions,
-              keywords,
-              tags,
-              strings,
-              operators,
-              attributes,
-              numbers,
-              parameters,
-              green,
-              red,
-              yellow,
-              blue,
-              purple,
-              orange,
-              cyan,
-              white,
-              gray,
-              error,
-            } = currentTheme.colors;
+        background,
+        foreground,
+        text,
+        selectBg,
+        selectFg,
+        button,
+        disabled,
+        contrast,
+        second,
+        table,
+        border,
+        hl,
+        tree,
+        notif,
+        accent,
+        excluded,
+        comments,
+        vars,
+        links,
+        functions,
+        keywords,
+        tags,
+        strings,
+        operators,
+        attributes,
+        numbers,
+        parameters,
+        green,
+        red,
+        yellow,
+        blue,
+        purple,
+        orange,
+        cyan,
+        white,
+        gray,
+        error,
+      } = currentTheme.colors;
 
       // Create a style tag with css variables with colors
       const style = document.createElement('style');
@@ -103,8 +100,8 @@ export const styleBuilder = {
         error,
         fontFamily: currentFontFamily,
         fontSize: currentFontSize,
-        accentColor,
-        scrollbars
+        accentColor: currentAccentColor,
+        scrollbars,
       });
 
       const styleElem = document.getElementById('inject-style');
@@ -115,89 +112,49 @@ export const styleBuilder = {
     }
   },
 
-  /**
-   * Extract the styles and create a css string to be injected to a style tag
-   * @param background
-   * @param foreground
-   * @param primary
-   * @param selectBg
-   * @param selectFg
-   * @param button
-   * @param disabled
-   * @param contrast
-   * @param second
-   * @param darkerBg
-   * @param lighterBg
-   * @param table
-   * @param border
-   * @param highlight
-   * @param tree
-   * @param notif
-   * @param accent
-   * @param accent2
-   * @param accent3
-   * @param excluded
-   * @param comments
-   * @param vars
-   * @param links
-   * @param functions
-   * @param keywords
-   * @param tags
-   * @param errors
-   * @param strings
-   * @param operators
-   * @param numbers
-   * @param attributes
-   * @param parameters
-   * @param fontFamily
-   * @param fontSize
-   * @param accentColor
-   * @returns {string}
-   */
   styles({
-           background,
-           foreground,
-           text,
-           selectBg,
-           selectFg,
-           selectFg2,
-           button,
-           disabled,
-           contrast,
-           second,
-           table,
-           border,
-           hl,
-           tree,
-           notif,
-           accent,
-           excluded,
-           comments,
-           vars,
-           links,
-           functions,
-           keywords,
-           tags,
-           errors,
-           strings,
-           operators,
-           numbers,
-           attributes,
-           parameters,
-           green,
-           red,
-           yellow,
-           blue,
-           purple,
-           orange,
-           cyan,
-           white,
-           gray,
-           error,
-           fontFamily,
-           fontSize,
-           accentColor
-         }) {
+    background,
+    foreground,
+    text,
+    selectBg,
+    selectFg,
+    selectFg2,
+    button,
+    disabled,
+    contrast,
+    second,
+    table,
+    border,
+    hl,
+    tree,
+    notif,
+    accent,
+    excluded,
+    comments,
+    vars,
+    links,
+    functions,
+    keywords,
+    tags,
+    strings,
+    operators,
+    numbers,
+    attributes,
+    parameters,
+    green,
+    red,
+    yellow,
+    blue,
+    purple,
+    orange,
+    cyan,
+    white,
+    gray,
+    error,
+    fontFamily,
+    fontSize,
+    accentColor,
+  }: Colors & AppSettings) {
     // language=CSS
     return `
       :root {
@@ -223,7 +180,7 @@ export const styleBuilder = {
         --attributes: ${attributes};
         --comments: ${comments};
         --keywords: ${keywords};
-        --errors: ${errors};
+        --errors: ${error};
         --vars: ${vars};
         --operators: ${operators};
         --functions: ${functions};
@@ -247,5 +204,5 @@ export const styleBuilder = {
         --font-size: ${fontSize || 10}px;
       }
     `;
-  }
+  },
 };

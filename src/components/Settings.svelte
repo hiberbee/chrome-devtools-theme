@@ -1,6 +1,7 @@
 <script>
-  import { app } from '../$app';
-  import { styleBuilder } from '../style-builder';
+    import { app } from '~store/store.ts';
+
+  import { styleBuilder } from '~utils/styleBuilder';
   import { debounce } from '@github/mini-throttle';
 
   function applyTheme() {
@@ -9,7 +10,7 @@
         currentTheme: $app.currentTheme,
         currentFontFamily: $app.currentFontFamily,
         currentFontSize: $app.currentFontSize,
-        accentColor: $app.currentAccentColor,
+        currentAccentColor: $app.currentAccentColor,
         scrollbars: $app.scrollbars
       });
   }
@@ -22,21 +23,26 @@
   }
 </script>
 
-<style>
+<style lang='scss'>
   .font-setting {
     display: block;
     margin: 1rem auto;
-  }
 
-  .font-setting label {
-    display: block;
-    text-align: left;
-    margin-bottom: 0.5em;
-  }
+    label {
+      display: block;
+      text-align: left;
+      margin-bottom: 0.5em;
+    }
 
-  .font-setting input {
-    display: block;
-    background-image: none;
+    input {
+      display: block;
+      background-image: none;
+    }
+
+    .accent-color-input {
+      border: none;
+      display: inline-block;
+    }
   }
 
   .font-family input {
@@ -49,11 +55,6 @@
     border-radius: 10px;
   }
 
-  .font-setting .accent-color-input {
-    border: none;
-    display: inline-block;
-  }
-
   .accent-reset-button {
     background: var(--button);
     color: var(--text);
@@ -63,11 +64,11 @@
     border: 0;
     transition: all .3s;
     outline: none;
-  }
 
-  .accent-reset-button:hover {
-    background: var(--hl);
-    color: var(--selection-fg-color);
+    &:hover {
+      background: var(--hl);
+      color: var(--selection-fg-color);
+    }
   }
 
   .accent-color-wrapper {
@@ -75,37 +76,36 @@
     justify-content: space-between;
   }
 
-  input[type="color"] {
+  input[type='color'] {
     -webkit-appearance: none;
     width: 32px;
     height: 32px;
     border-radius: 50%;
   }
 
-  input[type="color"]::-webkit-color-swatch-wrapper {
+  input[type='color']::-webkit-color-swatch-wrapper {
     padding: 0;
     border-radius: 50%;
   }
 
-  input[type="color"]::-webkit-color-swatch {
+  input[type='color']::-webkit-color-swatch {
     border-color: var(--border);
     border-radius: 50%;
   }
 
-  input[type="checkbox"] {
+  input[type='checkbox'] {
     filter: none !important;
     position: absolute !important;
     opacity: 0 !important;
   }
 
-  input[type="checkbox"] + label {
+  input[type='checkbox'] + label {
     position: relative !important;
     cursor: pointer !important;
     padding: 0 !important;
   }
 
-
-  input[type="checkbox"] + label:before {
+  input[type='checkbox'] + label:before {
     position: relative;
     content: '' !important;
     margin-right: 10px !important;
@@ -118,31 +118,30 @@
     border-radius: 4px !important;
   }
 
-  input[type="checkbox"]:hover + label:before {
+  input[type='checkbox']:hover + label:before {
     background: var(--contrast) !important;
   }
 
-  input[type="checkbox"]:focus + label:before {
+  input[type='checkbox']:focus + label:before {
     box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12) !important;
   }
 
-  input[type="checkbox"]:checked + label:before {
+  input[type='checkbox']:checked + label:before {
     background: var(--accent) !important;
     color: var(--bg) !important;
   }
 
-  input[type="checkbox"]:disabled + label {
+  input[type='checkbox']:disabled + label {
     color: #b8b8b8 !important;
     cursor: auto !important;
   }
 
-
-  input[type="checkbox"]:disabled + label:before {
+  input[type='checkbox']:disabled + label:before {
     box-shadow: none !important;
     opacity: 0.6;
   }
 
-  input[type="checkbox"]:checked + label:after {
+  input[type='checkbox']:checked + label:after {
     content: '' !important;
     position: absolute !important;
     left: 3px !important;
@@ -213,5 +212,5 @@
          id='scrollbars'
          on:change={debouncedApply}
          bind:checked={$app.scrollbars} />
-  <label for="scrollbars"></label>
+  <label for='scrollbars'></label>
 </div>

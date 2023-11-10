@@ -1,76 +1,50 @@
 import { writable } from 'svelte/store';
-import { DEVTOOLS_ACCENT_COLOR, DEVTOOLS_CURRENT, DEVTOOLS_FONT, DEVTOOLS_SCROLLBARS, DEVTOOLS_SIZE, DEVTOOLS_THEME, SETTINGS, storage } from './storage';
+import {
+  DEVTOOLS_ACCENT_COLOR,
+  DEVTOOLS_CURRENT,
+  DEVTOOLS_FONT,
+  DEVTOOLS_SCROLLBARS,
+  DEVTOOLS_SIZE,
+  DEVTOOLS_THEME,
+  SETTINGS,
+  storage,
+  type DevtoolsSettings,
+} from 'src/storage';
+import type { Theme, Nullable, AppSettings } from '~types/types';
 
-/**
- * @typedef Theme {object}
- * @property {string} name
- * @property {string} className
- * @property {string} description
- * @property {boolean} dark
- * @property {Theme} colors
- */
-class App {
-  constructor(data) {
-    /**
-     * The current theme
-     * @type {?Theme}
-     * @private
-     */
-    this._currentTheme = null;
-    /**
-     * The current theme name
-     * @type {null}
-     * @private
-     */
-    this._currentThemeName = null;
-    /**
-     * The current font size
-     * @type {?number}
-     * @private
-     */
-    this._currentFontSize = null;
-    /**
-     * The current font family
-     * @type {?string}
-     * @private
-     */
-    this._currentFontFamily = null;
-    /**
-     * The custom accent color
-     *
-     * @type {?string}
-     * @private
-     */
-    this._currentAccentColor = null;
-    /**
-     * Whether scrollbars are enabled
-     * @type {boolean}
-     * @private
-     */
-    this._scrollbars = true;
+class Store {
+  private _currentTheme: Nullable<Theme> = null;
+  private _currentThemeName: Nullable<string> = null;
+  private _currentFontSize: Nullable<number> = null;
+  private _currentFontFamily: Nullable<string> = null;
+  private _currentAccentColor: Nullable<string> = null;
+  private _scrollbars: boolean = true;
 
-    /**
-     * List of available themes
-     * @type {Theme[]}
-     */
-    this.themes = [];
-    /**
-     * Loading state
-     * @type {boolean}
-     */
-    this.loading = true;
-    /**
-     * Whether the notification should be available
-     * @type {boolean}
-     */
-    this.notifying = false;
+  /**
+   * Loaded themes
+   * @type {Theme[]}
+   */
+  themes: Theme[] = [];
 
-    this.defaults = {
-      fontSize: 11,
-      fontFamily: 'Menlo',
-      accentColor: '#80cbc4'
-    };
+  /**
+   * Loading state
+   * @type {boolean}
+   */
+  loading: boolean = true;
 
+  /**
+   * Notifying state
+   * @type {boolean}
+   */
+  notifying: boolean = false;
+
+  defaults: AppSettings = {
+    fontSize: 11,
+    fontFamily: 'Menlo',
+    accentColor: '#80cbc4',
+  };
+
+  constructor(data: Partial<Store> = {}) {
     // Import data
     Object.assign(this, data);
   }
@@ -91,7 +65,7 @@ class App {
    * Returns the current theme
    * @returns {?Theme}
    */
-  get currentTheme() {
+  get currentTheme(): Nullable<Theme> {
     return this._currentTheme;
   }
 
@@ -99,17 +73,23 @@ class App {
    * Sets the current theme
    * @param {Theme} value
    */
-  set currentTheme(value) {
+  set currentTheme(value: Theme) {
     if (value) {
       // Simulate changing colors
       this._currentTheme = {
         ...value,
-        colors: {}
+        colors: {},
       };
 
       this.saveCurrent(value);
 
-      app.update($app => new App({ ...$app, _currentTheme: { ...value } }));
+      app.update(
+        ($app) =>
+          new Store({
+            ...$app,
+            currentTheme: { ...value }, // Todo check if _currentTheme is needed
+          }),
+      );
     }
   }
 
@@ -117,7 +97,7 @@ class App {
    * Retrieve the current theme
    * @returns {null}
    */
-  get currentThemeName() {
+  get currentThemeName(): Nullable<string> {
     return this._currentThemeName;
   }
 
@@ -125,7 +105,7 @@ class App {
    * Change the current theme name and current theme
    * @param name
    */
-  set currentThemeName(name) {
+  set currentThemeName(name: string) {
     this._notify(this._currentTheme, name);
     this._currentThemeName = name;
     this.saveTheme(name);
@@ -138,7 +118,7 @@ class App {
    * Returns the current font size
    * @returns {?number}
    */
-  get currentFontSize() {
+  get currentFontSize(): Nullable<number> {
     return this._currentFontSize;
   }
 
@@ -146,7 +126,7 @@ class App {
    * Sets the current font size
    * @param {number} value
    */
-  set currentFontSize(value) {
+  set currentFontSize(value: number) {
     this._notify(this._currentFontSize, value);
     this._currentFontSize = value;
     this.saveFontSize(value);
@@ -156,7 +136,7 @@ class App {
    * Returns the current font family
    * @returns {?string}
    */
-  get currentFontFamily() {
+  get currentFontFamily(): Nullable<string> {
     return this._currentFontFamily;
   }
 
@@ -164,7 +144,7 @@ class App {
    * Sets the current font family
    * @param {string} value
    */
-  set currentFontFamily(value) {
+  set currentFontFamily(value: string) {
     this._notify(this._currentFontFamily, value);
     this._currentFontFamily = value;
     this.saveFontFamily(value);
@@ -174,7 +154,7 @@ class App {
    * Returns the current font family
    * @returns {?string}
    */
-  get currentAccentColor() {
+  get currentAccentColor(): Nullable<string> {
     return this._currentAccentColor;
   }
 
@@ -182,7 +162,7 @@ class App {
    * Sets the current accent
    * @param {string} value
    */
-  set currentAccentColor(value) {
+  set currentAccentColor(value: string) {
     this._notify(this._currentAccentColor, value);
     this._currentAccentColor = value;
     this.saveAccentColor(value);
@@ -192,7 +172,7 @@ class App {
    * Scrollbars enabled ?
    * @returns {boolean}
    */
-  get scrollbars() {
+  get scrollbars(): boolean {
     return this._scrollbars;
   }
 
@@ -200,7 +180,7 @@ class App {
    * Sets the scrollbars state
    * @param value
    */
-  set scrollbars(value) {
+  set scrollbars(value: boolean) {
     this._notify(this._scrollbars, value);
     this._scrollbars = value;
     this.saveScrollbars(value);
@@ -210,15 +190,15 @@ class App {
    * Load Themes
    * @param themes
    */
-  loadThemes(themes) {
-    this.themes = themes.map(theme => {
+  loadThemes(themes: Theme[]) {
+    this.themes = themes.map((theme) => {
       return {
         name: theme.name,
         className: theme.className,
         description: theme.description,
         dark: theme.dark,
         colors: theme,
-        accent: theme.accent
+        // accent: theme.accent,
       };
     });
   }
@@ -228,7 +208,7 @@ class App {
    * @param {string} name
    * @returns {?Theme}
    */
-  getTheme(name = '') {
+  getTheme(name: string = ''): Nullable<Theme> {
     return this.themes.find((theme) => theme.name === name);
   }
 
@@ -236,14 +216,14 @@ class App {
    * Save selected theme
    * @param {string} name
    */
-  saveTheme(name) {
+  saveTheme(name: string) {
     storage.set({ [DEVTOOLS_THEME]: name }, () => {
       if (chrome && chrome.action) {
         chrome.action.setIcon({
-          path: `/public/icons/${name}.svg`
+          path: `/public/icons/${name}.svg`,
         });
         chrome.action.setTitle({
-          title: `Material Theme Devtools - ${name}`
+          title: `Material Theme Devtools - ${name}`,
         });
       }
     });
@@ -253,7 +233,7 @@ class App {
    * Save selected font family
    * @param {string} family
    */
-  saveFontFamily(family) {
+  saveFontFamily(family: string) {
     storage.set({ [DEVTOOLS_FONT]: family }, () => {});
   }
 
@@ -261,7 +241,7 @@ class App {
    * Save selected font size
    * @param {number} size
    */
-  saveFontSize(size) {
+  saveFontSize(size: number) {
     storage.set({ [DEVTOOLS_SIZE]: size }, () => {});
   }
 
@@ -269,7 +249,7 @@ class App {
    * Save current theme
    * @param theme
    */
-  saveCurrent(theme) {
+  saveCurrent(theme: Theme) {
     storage.set({ [DEVTOOLS_CURRENT]: theme }, () => {});
   }
 
@@ -277,7 +257,7 @@ class App {
    * Save current accent color
    * @param color {string}
    */
-  saveAccentColor(color) {
+  saveAccentColor(color: string) {
     storage.set({ [DEVTOOLS_ACCENT_COLOR]: color }, () => {});
   }
 
@@ -285,7 +265,7 @@ class App {
    * Save current accent color
    * @param state {boolean}
    */
-  saveScrollbars(state) {
+  saveScrollbars(state: boolean) {
     storage.set({ [DEVTOOLS_SCROLLBARS]: state }, () => {});
   }
 
@@ -294,7 +274,7 @@ class App {
    */
   fetchSettings() {
     /** Get current theme setting from storage */
-    return storage.get(SETTINGS, object => {
+    return storage.get(SETTINGS, (object: DevtoolsSettings) => {
       this._currentThemeName = object[DEVTOOLS_THEME] || this.defaults.themeName;
       this._currentFontFamily = object[DEVTOOLS_FONT] || this.defaults.fontFamily;
       this._currentFontSize = object[DEVTOOLS_SIZE] || this.defaults.fontSize;
@@ -302,7 +282,6 @@ class App {
       this._scrollbars = object[DEVTOOLS_SCROLLBARS] ?? true;
       this.currentTheme = this.getTheme(this._currentThemeName || 'Material Oceanic');
     });
-
   }
 
   /**
@@ -318,7 +297,7 @@ class App {
    * @param newValue
    * @private
    */
-  _notify(oldValue, newValue) {
+  _notify(oldValue: unknown, newValue: unknown) {
     if (oldValue && oldValue !== newValue) {
       this.notifying = true;
       setTimeout(this._clearNotify, 5000);
@@ -330,9 +309,9 @@ class App {
    * @param _
    * @private
    */
-  _clearNotify(_) {
-    return app.update(app => new App({ ...app, notifying: false }));
+  _clearNotify(_: never) {
+    return app.update((app) => new Store({ ...app, notifying: false }));
   }
 }
 
-export const app = writable(new App());
+export const app = writable(new Store());

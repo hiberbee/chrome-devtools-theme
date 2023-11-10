@@ -2,28 +2,28 @@
   import { onMount } from 'svelte';
 
   import allThemes from './assets/themes.json';
-  // import {app} from '../src2/$app';
+  import { app } from '~store.ts';
   // import Panel from '~src/components/Panel.svelte';
   import Loading from '~components/Loading.svelte';
 
   onMount(async _ => {
-    //   $app.loading = true;
-    //   // Just waiting
-    //   await new Promise(resolve => setTimeout(resolve, 1000));
-    //   // Now fetching
+    $app.loading = true;
+    // Just waiting
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    // Now fetching
     const themes = [
       ...allThemes.material,
       ...allThemes.other
     ];
-    //
-    //   // Load themes
-    //   $app.loadThemes(themes);
-    //   // Get settings from local storage
-    //   await $app.fetchSettings();
-    //   // Add defaults
-    //   $app.loadDefaults();
-    //
-    //   $app.loading = false;
+
+    // Load themes
+    $app.loadThemes(themes);
+    // Get settings from local storage
+    await $app.fetchSettings();
+    // Add defaults
+    $app.loadDefaults();
+
+    $app.loading = false;
   });
 </script>
 
@@ -42,7 +42,7 @@
 
 <main class='main'>
   <Loading></Loading>
-  <!--    {#if !$app.loading}-->
-  <!--        <Panel></Panel>-->
-  <!--    {/if}-->
+  {#if !$app.loading}
+    <!--          <Panel></Panel>-->
+  {/if}
 </main>

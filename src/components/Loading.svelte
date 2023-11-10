@@ -3,9 +3,10 @@
     background: var(--bg, #263238);
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     text-align: center;
     width: 100%;
+    height: 100%;
     margin: 0 auto;
     padding: 0 2rem;
     max-width: 40rem;

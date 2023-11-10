@@ -20,8 +20,6 @@
     "build": "plasmo build",
     "dev": "plasmo dev",
     "verbose": "plasmo dev --verbose",
-    "start": "sirv public --single",
-    "start:dev": "sirv public --single --dev",
     "styles": "gulp debugStyles",
     "app": "gulp app",
     "watchStyles": "gulp watchStyles",

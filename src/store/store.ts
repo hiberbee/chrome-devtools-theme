@@ -153,7 +153,7 @@ export class Store {
    * @returns {?string}
    */
   get currentAccentColor(): Nullable<string> {
-    return this._currentAccentColor;
+    return this._currentAccentColor || this.currentTheme?.colors.accent;
   }
 
   /**

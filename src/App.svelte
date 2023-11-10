@@ -1,32 +1,29 @@
 <script>
-  import {onMount} from 'svelte';
-  import yaml from 'js-yaml';
-  // import * as api from './api';
+  import { onMount } from 'svelte';
+
+  import allThemes from './assets/themes.json';
   // import {app} from '../src2/$app';
   // import Panel from '~src/components/Panel.svelte';
   import Loading from '~components/Loading.svelte';
 
   onMount(async _ => {
-    console.log('did');
-  //   $app.loading = true;
-  //   // Just waiting
-  //   await new Promise(resolve => setTimeout(resolve, 1000));
-  //   // Now fetching
-  //   const themesYml = await api.get('themes.yml');
-  //   const allThemes = yaml.load(themesYml);
-  //   const themes = [
-  //     ...allThemes.material,
-  //     ...allThemes.other,
-  //   ];
-  //
-  //   // Load themes
-  //   $app.loadThemes(themes);
-  //   // Get settings from local storage
-  //   await $app.fetchSettings();
-  //   // Add defaults
-  //   $app.loadDefaults();
-  //
-  //   $app.loading = false;
+    //   $app.loading = true;
+    //   // Just waiting
+    //   await new Promise(resolve => setTimeout(resolve, 1000));
+    //   // Now fetching
+    const themes = [
+      ...allThemes.material,
+      ...allThemes.other
+    ];
+    //
+    //   // Load themes
+    //   $app.loadThemes(themes);
+    //   // Get settings from local storage
+    //   await $app.fetchSettings();
+    //   // Add defaults
+    //   $app.loadDefaults();
+    //
+    //   $app.loading = false;
   });
 </script>
 

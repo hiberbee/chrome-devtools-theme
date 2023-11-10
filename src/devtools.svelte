@@ -3,7 +3,7 @@
   import darkStyle from 'data-text:./assets/dark.css';
   import lightStyle from 'data-text:./assets/light.css';
 
-  (async function (w, storage, panels, browserAction) {
+  (async function(w, storage, panels, browserAction) {
     const SETTINGS = 'devtools-settings';
     const DEVTOOLS_THEME = 'devtools-theme';
     const DEVTOOLS_FONT = 'devtools-font';
@@ -62,7 +62,7 @@
                   cyan,
                   white,
                   gray,
-                  error,
+                  error
                 } = currentTheme.colors;
 
           return this.styles({
@@ -106,7 +106,7 @@
             error,
             fontFamily: currentFontFamily,
             fontSize: currentFontSize,
-            accentColor: accentColor,
+            accentColor: accentColor
           });
         }
       },
@@ -197,59 +197,59 @@
                error,
                fontFamily,
                fontSize,
-               accentColor,
+               accentColor
              }) {
         // language=CSS
         return `
-        :root {
-          --bg: ${background};
-          --fg: ${foreground};
-          --text: ${primary};
-          --selBg: ${selectBg};
-          --selFg: ${selectFg};
-          --selFg2: ${selectFg2};
-          --button: ${button};
-          --disabled: ${disabled};
-          --contrast: ${contrast};
-          --second: ${second};
-          --active: ${table};
-          --border: ${border};
-          --hl: ${highlight};
-          --tree: ${tree};
-          --notif: ${notif};
-          --accent: ${accentColor || accent};
-          --excluded: ${excluded};
+          :root {
+            --bg: ${background};
+            --fg: ${foreground};
+            --text: ${primary};
+            --selBg: ${selectBg};
+            --selFg: ${selectFg};
+            --selFg2: ${selectFg2};
+            --button: ${button};
+            --disabled: ${disabled};
+            --contrast: ${contrast};
+            --second: ${second};
+            --active: ${table};
+            --border: ${border};
+            --hl: ${highlight};
+            --tree: ${tree};
+            --notif: ${notif};
+            --accent: ${accentColor || accent};
+            --excluded: ${excluded};
 
-          --tags: ${tags};
-          --attributes: ${attributes};
-          --comments: ${comments};
-          --keywords: ${keywords};
-          --errors: ${errors};
-          --vars: ${vars};
-          --operators: ${operators};
-          --functions: ${functions};
-          --strings: ${strings};
-          --numbers: ${numbers};
-          --links: ${links};
-          --parameters: ${parameters};
-          --green: ${green};
-          --red: ${red};
-          --yellow: ${yellow};
-          --blue: ${blue};
-          --purple: ${purple};
-          --orange: ${orange};
-          --cyan: ${cyan};
-          --white: ${white};
-          --gray: ${gray};
-          --error: ${error};
+            --tags: ${tags};
+            --attributes: ${attributes};
+            --comments: ${comments};
+            --keywords: ${keywords};
+            --errors: ${errors};
+            --vars: ${vars};
+            --operators: ${operators};
+            --functions: ${functions};
+            --strings: ${strings};
+            --numbers: ${numbers};
+            --links: ${links};
+            --parameters: ${parameters};
+            --green: ${green};
+            --red: ${red};
+            --yellow: ${yellow};
+            --blue: ${blue};
+            --purple: ${purple};
+            --orange: ${orange};
+            --cyan: ${cyan};
+            --white: ${white};
+            --gray: ${gray};
+            --error: ${error};
 
 
-          --ui-font-family: Roboto, Helvetica Neue, Arial, sans-serif;
-          --font-family: ${fontFamily}, Menlo, Consolas, "Fira Code", monospace;
-          --font-size: ${fontSize || 10}px;
-        }
-      `;
-      },
+            --ui-font-family: Roboto, Helvetica Neue, Arial, sans-serif;
+            --font-family: ${fontFamily}, Menlo, Consolas, "Fira Code", monospace;
+            --font-size: ${fontSize || 10}px;
+          }
+        `;
+      }
     };
 
     function generateScrollbarsStyle(scrollbars = true) {
@@ -258,16 +258,16 @@
       }
       // language=CSS
       return `
-      :host ::-webkit-scrollbar,
-      html ::-webkit-scrollbar,
-      .-theme-with-dark-background ::-webkit-scrollbar,
-      :host-context(.-theme-with-dark-background) ::-webkit-scrollbar {
-        width: 10px !important;
-        height: 10px !important;
-        opacity: 0 !important;
-        transition: opacity 0.4s ease;
-      }
-    `;
+        :host ::-webkit-scrollbar,
+        html ::-webkit-scrollbar,
+        .-theme-with-dark-background ::-webkit-scrollbar,
+        :host-context(.-theme-with-dark-background) ::-webkit-scrollbar {
+          width: 10px !important;
+          height: 10px !important;
+          opacity: 0 !important;
+          transition: opacity 0.4s ease;
+        }
+      `;
     }
 
     async function themeSetup() {
@@ -275,12 +275,12 @@
         const settings = object[SETTINGS];
         if (settings && settings.startsWith('{')) {
           const json = JSON.parse(settings);
-          const size = json[DEVTOOLS_SIZE],
-                theme = json[DEVTOOLS_THEME] || 'Oceanic',
-                current = json[DEVTOOLS_CURRENT],
-                family = json[DEVTOOLS_FONT],
+          const size       = json[DEVTOOLS_SIZE],
+                theme      = json[DEVTOOLS_THEME] || 'Oceanic',
+                current    = json[DEVTOOLS_CURRENT],
+                family     = json[DEVTOOLS_FONT],
                 scrollbars = json[DEVTOOLS_SCROLLBARS] ?? true,
-                accent = json[DEVTOOLS_ACCENT_COLOR];
+                accent     = json[DEVTOOLS_ACCENT_COLOR];
 
           // Variables
           let style = styleBuilder.generateThemeVars(current, family, size, accent);
@@ -293,18 +293,16 @@
           // Apply theme
           if (current.dark) {
             panels.applyStyleSheet(lightStyle);
-          } else {
+          }
+          else {
             panels.applyStyleSheet(darkStyle);
           }
           // Apply def style
           panels.applyStyleSheet(scroll);
-        } else {
+        }
+        else {
           // Append scroll manually
           const scroll = generateScrollbarsStyle(true);
-
-          // css = await fetch('~/assets/default.css').then((res) => res.text());
-
-          console.log('applying default theme');
           panels.applyStyleSheet(defaultStyle);
           panels.applyStyleSheet(scroll);
         }

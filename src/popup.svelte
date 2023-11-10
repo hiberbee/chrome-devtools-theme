@@ -1,5 +1,6 @@
 <script lang='ts'>
   import App from '~App.svelte';
+  import './styles/app.scss';
 </script>
 
 <style global lang='scss'>
@@ -21,8 +22,8 @@
     margin: 0;
     height: 100%;
     width: 100%;
-    min-width: 1024px;
-    min-height: 800px;
+    min-width: 720px;
+    min-height: 600px;
     font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     font-size: 14px;
     line-height: 1.5;
@@ -135,6 +136,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    overflow-x: hidden;
   }
 </style>
 

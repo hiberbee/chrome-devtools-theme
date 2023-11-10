@@ -29,15 +29,15 @@
     </header>
   {/if}
 
-  <grid>
+  <grid class='grid'>
     <div class='first-col'>
-      <ThemeSelector></ThemeSelector>
+      <ThemeSelector />
 
-      <Settings></Settings>
+      <Settings />
     </div>
 
     <div class='second-col preview'>
-      <ThemePreview></ThemePreview>
+      <ThemePreview />
     </div>
   </grid>
 </div>
@@ -102,7 +102,7 @@
     }
   }
 
-  grid {
+  .grid {
     display: grid;
     grid-template-columns: 50% 50%;
     grid-column-gap: 20px;

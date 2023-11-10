@@ -26,6 +26,10 @@
       line-height: 1;
       font-size: 2em;
     }
+
+    &:empty {
+      display: none;
+    }
   }
 
 </style>

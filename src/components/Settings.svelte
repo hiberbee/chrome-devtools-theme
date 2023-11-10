@@ -1,5 +1,5 @@
 <script>
-    import { app } from '~store/store.ts';
+  import { app } from '~store/store.ts';
 
   import { styleBuilder } from '~utils/styleBuilder';
   import { debounce } from '@github/mini-throttle';

@@ -1,18 +1,15 @@
 {
   "name": "material-dev-tools",
-  "version": "7.4.1",
+  "version": "7.5.0",
   "description": "Material Theme for Devtools",
   "author": "Elior Boukhobza <heliosaian@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "plasmo": "^0.83.0",
+    "plasmo": "^0.84.0",
     "@github/mini-throttle": "^2.1.1",
     "compression": "1.7.4",
-    "js-yaml": "4.1.0",
     "polka": "0.5.2",
     "prismjs": "1.29.0",
-    "sirv": "2.0.3",
-    "sirv-cli": "^2.0.2",
     "svelte": "4.2.2",
     "svelte-preprocess": "^5.0.4"
   },
@@ -20,7 +17,7 @@
     "build": "plasmo build",
     "dev": "plasmo dev",
     "verbose": "plasmo dev --verbose",
-    "package": "plasmo package",
+    "package": "npm run build && plasmo package",
     "styles": "gulp debugStyles",
     "app": "gulp app",
     "watchStyles": "gulp watchStyles",
@@ -64,10 +61,6 @@
           "file://*/*"
         ]
       }
-    ],
-    "host_permissions": [
-      "https://*/*",
-      "file://*/*"
     ]
   }
 }

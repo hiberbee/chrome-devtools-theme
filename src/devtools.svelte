@@ -288,7 +288,7 @@
           const scroll = generateScrollbarsStyle(scrollbars);
 
           panels.applyStyleSheet(style);
-          browserAction.setIcon({ path: `./public/icons/${theme}.svg` }, () => {});
+          browserAction.setIcon({ path: `assets/icons/${theme}.svg` }, () => {});
 
           // Apply theme
           if (current.dark) {
